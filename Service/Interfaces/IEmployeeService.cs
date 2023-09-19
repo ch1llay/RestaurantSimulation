@@ -1,6 +1,3 @@
 ﻿namespace Service.Interfaces;
 
-public interface IEmployeeService
-{
-    
-}
+public interface IEmployeeService { }

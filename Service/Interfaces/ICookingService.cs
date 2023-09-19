@@ -1,6 +1,3 @@
 ﻿namespace Service.Interfaces;
 
-public interface ICookingService
-{
-    
-}
+public interface ICookingService { }

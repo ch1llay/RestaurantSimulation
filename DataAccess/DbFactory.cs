@@ -8,6 +8,7 @@ namespace DataAccess;
 public class DbFactory
 {
     public delegate DbConnection ConnectionMethod();
+
     public static IDataContext GetDataContextType(DbProvider provider, string connectionString)
     {
         switch (provider)
@@ -15,10 +16,10 @@ public class DbFactory
             case DbProvider.Mssql:
                 return new DapperContext(() =>
                 {
-                        var con = new SqlConnection(connectionString);
-                        con.Open();
+                    var con = new SqlConnection(connectionString);
+                    con.Open();
 
-                        return con;
+                    return con;
                 });
 
             case DbProvider.Pgsql:
@@ -29,9 +30,10 @@ public class DbFactory
 
                     return con;
                 });
-            
+
             case DbProvider.Mongo:
                 return new MongoContext(connectionString);
+
             default:
                 throw new NotImplementedException();
         }

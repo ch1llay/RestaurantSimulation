@@ -7,11 +7,11 @@ public static class ProductMapper
 {
     public static Product ToApplication(this DbProduct product)
     {
-        return new Product { };
+        return new Product();
     }
-    
+
     public static DbProduct ToDb(this Product product)
     {
-        return new DbProduct { };
+        return new DbProduct();
     }
 }

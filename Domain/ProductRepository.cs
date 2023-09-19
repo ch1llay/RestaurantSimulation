@@ -6,8 +6,8 @@ namespace Domain;
 
 public class ProductRepository : IProductRepository
 {
-    private IDataContext _dataContext;
-    
+    private readonly IDataContext _dataContext;
+
     public ProductRepository(IDataContext dataContext)
     {
         _dataContext = dataContext;

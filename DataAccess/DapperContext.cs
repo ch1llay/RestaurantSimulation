@@ -1,14 +1,11 @@
-﻿using System.Data.Common;
-using System.Data.SqlClient;
-using Dapper;
+﻿using Dapper;
 using DataAccess.Interfaces;
-using Npgsql;
 
 namespace DataAccess;
 
 public class DapperContext : IDataContext
 {
-    private DbFactory.ConnectionMethod _connectionMethod;
+    private readonly DbFactory.ConnectionMethod _connectionMethod;
 
     public DapperContext(DbFactory.ConnectionMethod connectionMethod)
     {
@@ -54,7 +51,8 @@ public class DapperContext : IDataContext
     {
         await using var db = _connectionMethod();
 
-        return await db.ExecuteAsync(script, param);    }
+        return await db.ExecuteAsync(script, param);
+    }
 
     public async Task<T> Update<T>(string script, object param)
     {
