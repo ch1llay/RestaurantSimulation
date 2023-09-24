@@ -1,4 +1,4 @@
-﻿namespace Models.DTO;
+﻿namespace Models.DbModels;
 
 public class ProductCookingDish
 {

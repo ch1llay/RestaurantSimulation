@@ -1,5 +1,5 @@
 ﻿using Models.Application;
-using Models.DTO;
+using Models.DbModels;
 
 namespace Models.Mappers;
 

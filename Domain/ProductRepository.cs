@@ -1,6 +1,6 @@
 ﻿using DataAccess.Interfaces;
 using Domain.Interfaces;
-using Models.DTO;
+using Models.DbModels;
 
 namespace Domain;
 
@@ -15,7 +15,7 @@ public class ProductRepository : IProductRepository
 
     public Task<IEnumerable<DbProduct>> Get(IEnumerable<int> ids)
     {
-        return _dataContext.EnumerableOrEmpty<DbProduct>("", new { });
+        return _dataContext.EnumerableOrEmptyAsync<DbProduct>("", new { });
     }
 
     public Task<DbProduct> Get(int id)

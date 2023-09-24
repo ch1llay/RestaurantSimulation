@@ -1,4 +1,4 @@
-﻿using Models.DTO;
+﻿using Models.DbModels;
 
 namespace Domain.Interfaces;
 

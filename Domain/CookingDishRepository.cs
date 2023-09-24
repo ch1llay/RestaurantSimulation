@@ -1,5 +1,5 @@
 ﻿using Domain.Interfaces;
-using Models.DTO;
+using Models.DbModels;
 
 namespace Domain;
 

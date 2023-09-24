@@ -2,12 +2,12 @@
 
 public interface IDataContext
 {
-    public Task<T> Insert<T>(string script, object param);
-    public Task<IEnumerable<T>> InsertMany<T>(string script, object param);
-    public Task<T> FirstOrDefault<T>(string script, object param);
-    public Task<IEnumerable<T>> EnumerableOrEmpty<T>(string script, object param);
-    public Task<bool> Delete(string script, object param);
-    public Task<long> DeleteMany(string script, object param);
-    public Task<T> Update<T>(string script, object param);
-    public Task<IEnumerable<T>> UpdateMany<T>(string script, object param);
+    public Task<T> InsertAsync<T>(string script, object param);
+    public Task<IEnumerable<T>> InsertManyAsync<T>(string script, object param);
+    public Task<T> FirstOrDefaultAsync<T>(string script, object param);
+    public Task<IEnumerable<T>> EnumerableOrEmptyAsync<T>(string script, object param);
+    public Task<bool> DeleteAsync(string script, object param);
+    public Task<long> DeleteManyAsync(string script, object param);
+    public Task<T> UpdateAsync<T>(string script, object param);
+    public Task<IEnumerable<T>> UpdateManyAsync<T>(string script, object param);
 }

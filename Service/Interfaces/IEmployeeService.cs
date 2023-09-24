@@ -1,3 +1,9 @@
-﻿namespace Service.Interfaces;
+﻿using Models.DbModels;
 
-public interface IEmployeeService { }
+namespace Service.Interfaces;
+
+public interface IEmployeeService
+{
+    public Task<DbEmployee> Add(DbEmployee employee);
+    public Task<DbEmployee> Get(int id);
+}

@@ -1,6 +1,8 @@
 ﻿using System.Data.Common;
 using System.Data.SqlClient;
-using DataAccess.Interfaces;
+using System.Reflection;
+using FluentMigrator.Runner;
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 
 namespace DataAccess;
@@ -9,30 +11,56 @@ public class DbFactory
 {
     public delegate DbConnection ConnectionMethod();
 
-    public static IDataContext GetDataContextType(DbProvider provider, string connectionString)
+    public static Action<IMigrationRunnerBuilder> GetMigrationSetuper(IConfiguration config, IMigrationRunnerBuilder runner)
     {
+        var provider = Enum.Parse<DbProvider>(config["DbProvider"]);
+
         switch (provider)
         {
             case DbProvider.Mssql:
-                return new DapperContext(() =>
+                return _ =>
                 {
-                    var con = new SqlConnection(connectionString);
-                    con.Open();
-
-                    return con;
-                });
+                    runner.AddSqlServer()
+                        .WithGlobalConnectionString(config["MSConnection"] ?? throw new Exception("ms connection is not exist in config"))
+                        .ScanIn(Assembly.GetExecutingAssembly()).For.All();
+                };
 
             case DbProvider.Pgsql:
-                return new DapperContext(() =>
+                return _ =>
                 {
-                    var con = new NpgsqlConnection(connectionString);
+                    runner.AddPostgres()
+                        .WithGlobalConnectionString(config["PGConnection"] ?? throw new Exception("pg connection is not exist in config"))
+                        .ScanIn(Assembly.GetExecutingAssembly()).For.All();
+                };
+
+            default:
+                throw new NotImplementedException();
+        }
+    }
+
+    public static ConnectionMethod GetConnectionMethod(IConfiguration config)
+    {
+        var provider = Enum.Parse<DbProvider>(config["DbProvider"]);
+
+        switch (provider)
+        {
+            case DbProvider.Mssql:
+                return () =>
+                {
+                    var con = new SqlConnection(config["MSConnection"] ?? throw new Exception("ms connection is not exist in config"));
                     con.Open();
 
                     return con;
-                });
+                };
 
-            case DbProvider.Mongo:
-                return new MongoContext(connectionString);
+            case DbProvider.Pgsql:
+                return () =>
+                {
+                    var con = new NpgsqlConnection(config["PgConnection"] ?? throw new Exception("pg connection is not exist in config"));
+                    con.Open();
+
+                    return con;
+                };
 
             default:
                 throw new NotImplementedException();

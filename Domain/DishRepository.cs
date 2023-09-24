@@ -3,29 +3,29 @@ using Models.DbModels;
 
 namespace Domain;
 
-public class OrderRepository : IOrderRepository
+public class DishRepository : IDishRepository
 {
-    public IEnumerable<DbOrder> AddRange(IEnumerable<DbOrder> models)
+    public Task<IEnumerable<Dish>> Get(IEnumerable<int> ids)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<DbOrder> GetByTableNumber(int tableNumber)
+    public Task<Dish> Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbOrder>> Get(IEnumerable<int> ids)
+    public Task<Dish> Add(Dish model)
     {
         throw new NotImplementedException();
     }
 
-    public Task<DbOrder> Get(int id)
+    public IEnumerable<Dish> AddRange(IEnumerable<Dish> models)
     {
         throw new NotImplementedException();
     }
 
-    public Task<DbOrder> Add(DbOrder model)
+    public IEnumerable<CookingDish> GetByProducts(IEnumerable<int> productIds)
     {
         throw new NotImplementedException();
     }

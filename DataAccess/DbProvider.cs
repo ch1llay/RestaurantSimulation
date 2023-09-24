@@ -3,6 +3,5 @@
 public enum DbProvider
 {
     Mssql,
-    Pgsql,
-    Mongo
+    Pgsql
 }
