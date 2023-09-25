@@ -13,6 +13,7 @@ builder.Configure();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
 var app = builder.Build();
+app.ConfigureApp();
 
 app.Run();
 
