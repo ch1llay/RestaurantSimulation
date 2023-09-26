@@ -1,6 +1,9 @@
-﻿using Dapper;
+﻿using System.Collections;
+using System.Data;
+using Dapper;
 using DataAccess.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Models.DbModels;
 
 namespace DataAccess;
 
@@ -20,11 +23,22 @@ public class DapperContext : IDataContext
         return await db.QueryFirstOrDefaultAsync<T>(script, param);
     }
 
-    public async Task<IEnumerable<T>> InsertManyAsync<T>(string script, object param)
+    public async Task<IEnumerable<int>> InsertManyAsync<T>(string script, IEnumerable<T> objects)
     {
         await using var db = _connectionMethod();
+        using IDbTransaction transaction = await db.BeginTransactionAsync();
 
-        return await db.QueryAsync<T>(script, param);
+
+        var insertedObjectsIds = new List<int>();
+        foreach (var item in objects)
+        {
+            var id = await db.ExecuteScalarAsync<int>(script, item, transaction);
+            insertedObjectsIds.Add(id);
+        }
+
+        transaction.Commit();
+
+        return insertedObjectsIds;
     }
 
     public async Task<T> FirstOrDefaultAsync<T>(string script, object param)

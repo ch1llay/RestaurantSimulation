@@ -1,5 +1,6 @@
 ﻿using FluentMigrator;
 using FluentMigrator.Expressions;
+using Models.DbModels;
 
 namespace DataAccess.Migrations;
 
@@ -11,14 +12,14 @@ public class M_00001_InitialMigrations : Migration
         Create.Table("Employees")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString()
-            .WithColumn("WorkExpirience").AsInt32()
+            .WithColumn("WorkExperience").AsTime()
             .WithColumn("EmployeeType").AsInt32()
             .WithColumn("EmployeeRang").AsInt32();
 
         Create.Table("Tables")
-            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+            .WithColumn("Number").AsInt32().PrimaryKey().Identity()
             .WithColumn("PeopleCapacity").AsInt32()
-            .WithColumn("Availible").AsBoolean();
+            .WithColumn("Available").AsBoolean();
 
         Create.Table("Products")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
@@ -41,7 +42,7 @@ public class M_00001_InitialMigrations : Migration
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime()
-            .WithColumn("TableNumber").AsInt32().ForeignKey("Tables", "Id")
+            .WithColumn("TableNumber").AsInt32().ForeignKey("Tables", "Number")
             .WithColumn("PeopleAmount").AsInt32()
             .WithColumn("Amount").AsDecimal();
 
@@ -58,10 +59,25 @@ public class M_00001_InitialMigrations : Migration
             .ForeignKey("ProductId", "Products", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
+
+        var r = new Random();
+        for (var i = 1; i < 10; i++)
+        {
+            Insert.IntoTable("Tables")
+                .InSchema("public")
+                .Row(new Table {Number = i, PeopleCapacity = r.Next(1, 5), Available = true});
+        }
     }
 
     public override void Down()
     {
+        Delete.Table("ProductCookingDish");
+        Delete.Table("CookingDishes");
+        Delete.Table("Orders");
+        Delete.Table("ProductDish");
+        Delete.Table("Dishes");
+        Delete.Table("Products");
+        Delete.Table("Tables");
         Delete.Table("Employees");
     }
 }

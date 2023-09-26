@@ -30,4 +30,14 @@
     </ItemGroup>
 
 
+    <ItemGroup>
+      <ProjectReference Include="..\Models\Models.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Sql\Update\" />
+    </ItemGroup>
+
+
 </Project>

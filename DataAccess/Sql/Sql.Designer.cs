@@ -68,5 +68,13 @@ namespace DataAccess.Sql {
                 return ResourceManager.GetString("InsertEmployee", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        public static string GetAllEmployees {
+            get {
+                return ResourceManager.GetString("GetAllEmployees", resourceCulture);
+            }
+        }
     }
 }

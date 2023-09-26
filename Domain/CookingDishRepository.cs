@@ -5,7 +5,7 @@ namespace Domain;
 
 public class CookingDishRepository : ICookingDishRepository
 {
-    public IEnumerable<CookingDish> AddRange(IEnumerable<CookingDish> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<CookingDish> models)
     {
         throw new NotImplementedException();
     }
@@ -21,6 +21,11 @@ public class CookingDishRepository : ICookingDishRepository
     }
 
     public Task<IEnumerable<CookingDish>> Get(IEnumerable<int> ids)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<CookingDish>> GetAll()
     {
         throw new NotImplementedException();
     }

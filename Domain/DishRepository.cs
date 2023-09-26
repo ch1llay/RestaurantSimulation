@@ -10,6 +10,11 @@ public class DishRepository : IDishRepository
         throw new NotImplementedException();
     }
 
+    public Task<IEnumerable<Dish>> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<Dish> Get(int id)
     {
         throw new NotImplementedException();
@@ -20,7 +25,7 @@ public class DishRepository : IDishRepository
         throw new NotImplementedException();
     }
 
-    public IEnumerable<Dish> AddRange(IEnumerable<Dish> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<Dish> models)
     {
         throw new NotImplementedException();
     }

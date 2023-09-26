@@ -15,9 +15,20 @@ public class EmployeeRepository : IEmployeeRepository
         _dataContext = dataContext;
     }
 
-    public IEnumerable<DbEmployee> AddRange(IEnumerable<DbEmployee> models)
+    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> models)
     {
-        throw new NotImplementedException();
+        var ids = (await _dataContext.InsertManyAsync<DbEmployee>(Sql.InsertEmployee, models)).ToList();
+
+        var i = 0;
+        var dbEmployees = models.ToList();
+
+        foreach (var model in dbEmployees)
+        {
+            model.Id = ids[i];
+            i++;
+        }
+
+        return dbEmployees;
     }
 
     public IEnumerable<DbEmployee> GetByEmployeeType(EmployeeType employeeType)
@@ -30,6 +41,12 @@ public class EmployeeRepository : IEmployeeRepository
         throw new NotImplementedException();
     }
 
+    public Task<IEnumerable<DbEmployee>> GetAll()
+    {
+        
+       return _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Sql.GetAllEmployees, new {});
+    }
+
     public Task<DbEmployee> Get(int id)
     {
         throw new NotImplementedException();
@@ -37,7 +54,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<DbEmployee> Add(DbEmployee model)
     {
-        var id = await _dataContext.InsertAsync<int>(Sql.InsertEmployee, new {Name = "Bob"});
+        var id = await _dataContext.InsertAsync<int>(Sql.InsertEmployee, model);
         model.Id = id;
 
         return model;

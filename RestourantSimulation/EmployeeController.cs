@@ -19,4 +19,16 @@ public class EmployeeController : Controller
     {
         return Ok(await employeeService.Add(employee));
     }
+    
+    [HttpPost("employee/many")]
+    public async Task<IActionResult> AddMany(List<DbEmployee> employee)
+    {
+        return Ok(await employeeService.AddRange(employee));
+    }
+    
+    [HttpGet("employee/all")]
+    public async Task<IActionResult> GetAll()
+    {
+        return Ok(await employeeService.GetAll());
+    }
 }

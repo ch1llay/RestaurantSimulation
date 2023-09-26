@@ -5,7 +5,7 @@ namespace Domain;
 
 public class OrderRepository : IOrderRepository
 {
-    public IEnumerable<DbOrder> AddRange(IEnumerable<DbOrder> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbOrder> models)
     {
         throw new NotImplementedException();
     }
@@ -16,6 +16,11 @@ public class OrderRepository : IOrderRepository
     }
 
     public Task<IEnumerable<DbOrder>> Get(IEnumerable<int> ids)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<DbOrder>> GetAll()
     {
         throw new NotImplementedException();
     }

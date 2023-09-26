@@ -20,8 +20,21 @@ public class EmployeeService : IEmployeeService
         return employee;
     }
 
+    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> employees)
+    {
+        var employeesAdded = await employeeRepository.AddRange(employees);
+
+        return employeesAdded;
+    }
+
+
     public Task<DbEmployee> Get(int id)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<IEnumerable<DbEmployee>> GetAll()
+    {
+        return await employeeRepository.GetAll();
     }
 }

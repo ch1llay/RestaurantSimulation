@@ -1,2 +1,2 @@
-insert into "Employees" ("Id", "Name")
-values (default, @Name) returning "Id"
+insert into "Employees" ("Id", "Name", "WorkExperience", "EmployeeType", "EmployeeRang")
+values (default, @Name, @WorkExperience, @EmployeeType, @EmployeeRang) returning "Id", "Name", "WorkExperience", "EmployeeType", "EmployeeRang"

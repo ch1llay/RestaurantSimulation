@@ -18,6 +18,11 @@ public class ProductRepository : IProductRepository
         return _dataContext.EnumerableOrEmptyAsync<DbProduct>("", new { });
     }
 
+    public Task<IEnumerable<DbProduct>> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<DbProduct> Get(int id)
     {
         throw new NotImplementedException();
@@ -28,7 +33,7 @@ public class ProductRepository : IProductRepository
         throw new NotImplementedException();
     }
 
-    public IEnumerable<DbProduct> AddRange(IEnumerable<DbProduct> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbProduct> models)
     {
         throw new NotImplementedException();
     }
