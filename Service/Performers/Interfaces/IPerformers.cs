@@ -1,6 +1,7 @@
 ﻿namespace Service.Performers.Interfaces;
 
-public interface IPerformers<TPreparedItem, TSourceItem>
+public interface IPerformers<TIn, TOut>
 {
-    public TPreparedItem Prepare(TSourceItem sourceItem);
+    public TOut Prepare(TIn sourceItem);
+    public IEnumerable<TOut> Prepare(IEnumerable<TIn> sourceItem);
 }

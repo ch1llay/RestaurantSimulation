@@ -5,7 +5,12 @@ namespace Service.Performers.Barmans;
 
 public class GeneralBarmen : IBarman
 {
-    public ReadyDrink Prepare(Drink sourceItem)
+    public Drink Prepare(ReadyDrink sourceItem)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Drink> Prepare(IEnumerable<ReadyDrink> sourceItem)
     {
         throw new NotImplementedException();
     }

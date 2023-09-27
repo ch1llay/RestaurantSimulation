@@ -5,7 +5,12 @@ namespace Service.Performers;
 
 public class HotCook : ICook
 {
-    public ReadyDish Prepare(Dish sourceItem)
+    public Dish Prepare(ReadyDish sourceItem)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Dish> Prepare(IEnumerable<ReadyDish> sourceItem)
     {
         throw new NotImplementedException();
     }
