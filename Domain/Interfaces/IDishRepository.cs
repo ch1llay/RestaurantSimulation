@@ -1,8 +1,9 @@
-﻿using Models.DbModels;
+﻿using Models.Domain;
+using Models.Enums;
 
 namespace Domain.Interfaces;
 
-public interface IDishRepository : IRepository<Dish>
+public interface IDishRepository : IRepository<DbDish>
 {
-    public IEnumerable<CookingDish> GetByProducts(IEnumerable<int> productIds);
+    public IEnumerable<CookingDish> GetByType(DishType dishType);
 }

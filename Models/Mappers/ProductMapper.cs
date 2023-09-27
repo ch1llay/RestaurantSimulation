@@ -1,5 +1,5 @@
 ﻿using Models.Application;
-using Models.DbModels;
+using Models.Domain;
 
 namespace Models.Mappers;
 

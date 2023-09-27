@@ -1,7 +1,7 @@
 ﻿using DataAccess.Interfaces;
 using DataAccess.Sql;
 using Domain.Interfaces;
-using Models.DbModels;
+using Models.Domain;
 using Models.Enums;
 
 namespace Domain;
@@ -17,7 +17,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> models)
     {
-        var ids = (await _dataContext.InsertManyAsync<DbEmployee>(Sql.InsertEmployee, models)).ToList();
+        var ids = (await _dataContext.InsertManyAsync(Sql.InsertEmployee, models)).ToList();
 
         var i = 0;
         var dbEmployees = models.ToList();
@@ -43,8 +43,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public Task<IEnumerable<DbEmployee>> GetAll()
     {
-        
-       return _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Sql.GetAllEmployees, new {});
+        return _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Sql.GetAllEmployees, new { });
     }
 
     public Task<DbEmployee> Get(int id)

@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 using FluentMigrator.Expressions;
-using Models.DbModels;
+using Models.Domain;
 
 namespace DataAccess.Migrations;
 
@@ -12,7 +12,6 @@ public class M_00001_InitialMigrations : Migration
         Create.Table("Employees")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString()
-            .WithColumn("WorkExperience").AsTime()
             .WithColumn("EmployeeType").AsInt32()
             .WithColumn("EmployeeRang").AsInt32();
 
@@ -30,6 +29,7 @@ public class M_00001_InitialMigrations : Migration
         Create.Table("Dishes")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString()
+            .WithColumn("DishType").AsInt32()
             .WithColumn("Cost").AsDecimal();
         
         Create.Table("ProductDish")
@@ -48,15 +48,15 @@ public class M_00001_InitialMigrations : Migration
 
         Create.Table("CookingDishes")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
-            .ForeignKey("DishId", "Dishes", "Id")
-            .ForeignKey("OrderId", "Orders", "Id")
+            .WithColumn("DishId").AsInt32().ForeignKey("Dishes", "Id")
+            .WithColumn("OrderId").AsInt32().ForeignKey("Orders", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
         
         Create.Table("ProductCookingDish")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
-            .ForeignKey("CookingDishId", "CookingDishes", "Id")
-            .ForeignKey("ProductId", "Products", "Id")
+            .WithColumn("WithColumn").AsInt32().ForeignKey("CookingDishId", "CookingDishes", "Id")
+            .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
 

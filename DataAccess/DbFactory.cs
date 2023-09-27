@@ -38,29 +38,30 @@ public class DbFactory
         }
     }
 
-    public static ConnectionMethod GetConnectionMethod(IConfiguration config)
+    public static (ConnectionMethod, string) GetDbSettings(IConfiguration config)
     {
         var provider = Enum.Parse<DbProvider>(config["DbProvider"]);
 
         switch (provider)
         {
             case DbProvider.Mssql:
-                return () =>
-                {
-                    var con = new SqlConnection(config["MSConnection"] ?? throw new Exception("ms connection is not exist in config"));
-                    con.Open();
+                return (
+                    () =>
+                    {
+                        var con = new SqlConnection(config["MSConnection"] ?? throw new Exception("ms connection is not exist in config"));
+                        con.Open();
 
-                    return con;
-                };
+                        return con;
+                    }, "output insert.");
 
             case DbProvider.Pgsql:
-                return () =>
+                return (() =>
                 {
                     var con = new NpgsqlConnection(config["PgConnection"] ?? throw new Exception("pg connection is not exist in config"));
                     con.Open();
 
                     return con;
-                };
+                }, "returning ");
 
             default:
                 throw new NotImplementedException();

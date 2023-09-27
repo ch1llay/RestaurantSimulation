@@ -1,36 +1,43 @@
-﻿using Domain.Interfaces;
-using Models.DbModels;
+﻿using DataAccess.Interfaces;
+using Domain.Interfaces;
+using Models.Domain;
+using Models.Enums;
 
 namespace Domain;
 
 public class DishRepository : IDishRepository
 {
-    public Task<IEnumerable<Dish>> Get(IEnumerable<int> ids)
+    public DishRepository(IDataContext dataContext)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Dish>> GetAll()
+    public Task<IEnumerable<DbDish>> Get(IEnumerable<int> ids)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Dish> Get(int id)
+    public Task<IEnumerable<DbDish>> GetAll()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Dish> Add(Dish model)
+    public Task<DbDish> Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<Dish> models)
+    public Task<DbDish> Add(DbDish model)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<CookingDish> GetByProducts(IEnumerable<int> productIds)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDish> models)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<CookingDish> GetByType(DishType dishType)
     {
         throw new NotImplementedException();
     }

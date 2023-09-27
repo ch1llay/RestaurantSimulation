@@ -1,10 +1,16 @@
-﻿using Domain.Interfaces;
-using Models.DbModels;
+﻿using DataAccess.Interfaces;
+using Domain.Interfaces;
+using Models.Domain;
 
 namespace Domain;
 
 public class CookingDishRepository : ICookingDishRepository
 {
+    public CookingDishRepository(IDataContext dataContext)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<CookingDish> models)
     {
         throw new NotImplementedException();

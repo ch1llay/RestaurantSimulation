@@ -1,6 +1,6 @@
 ﻿using DataAccess.Interfaces;
 using Domain.Interfaces;
-using Models.DbModels;
+using Models.Domain;
 
 namespace Domain;
 

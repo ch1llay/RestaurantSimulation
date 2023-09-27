@@ -1,23 +1,31 @@
-﻿using System.Collections;
-using System.Data;
+﻿using System.Data;
 using Dapper;
 using DataAccess.Interfaces;
 using Microsoft.Extensions.Configuration;
-using Models.DbModels;
 
 namespace DataAccess;
 
 public class DapperContext : IDataContext
 {
     private readonly DbFactory.ConnectionMethod _connectionMethod;
+    private readonly string _returningKeyword;
 
     public DapperContext(IConfiguration config)
     {
-        _connectionMethod = DbFactory.GetConnectionMethod(config);
+        var dbSettings = DbFactory.GetDbSettings(config);
+        _connectionMethod = dbSettings.Item1;
+        _returningKeyword = dbSettings.Item2;
+    }
+
+    private string PrepareInsertQuery(string query)
+    {
+        return string.Format(query, _returningKeyword);
     }
 
     public async Task<T> InsertAsync<T>(string script, object param)
     {
+        script = PrepareInsertQuery(script);
+        
         await using var db = _connectionMethod();
 
         return await db.QueryFirstOrDefaultAsync<T>(script, param);
@@ -25,11 +33,14 @@ public class DapperContext : IDataContext
 
     public async Task<IEnumerable<int>> InsertManyAsync<T>(string script, IEnumerable<T> objects)
     {
+        script = PrepareInsertQuery(script);
+
         await using var db = _connectionMethod();
         using IDbTransaction transaction = await db.BeginTransactionAsync();
 
 
         var insertedObjectsIds = new List<int>();
+
         foreach (var item in objects)
         {
             var id = await db.ExecuteScalarAsync<int>(script, item, transaction);
@@ -41,7 +52,7 @@ public class DapperContext : IDataContext
         return insertedObjectsIds;
     }
 
-    public async Task<T> FirstOrDefaultAsync<T>(string script, object param)
+    public async Task<T?> FirstOrDefaultAsync<T>(string script, object param)
     {
         await using var db = _connectionMethod();
 

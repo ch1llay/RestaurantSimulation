@@ -119,12 +119,12 @@
     </resheader>
     <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
     <data name="InsertEmployee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Insert\InsertEmployee.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+        <value>Insert\Employee\InsertEmployee.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
     </data>
     <data name="GetEmployeesByIds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Get\GetEmployeesByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+        <value>Get\Employee\GetEmployeesByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
     </data>
     <data name="GetAllEmployees" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>Get\GetAllEmployees.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+        <value>Get\Employee\GetAllEmployees.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
     </data>
 </root>

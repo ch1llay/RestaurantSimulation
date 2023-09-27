@@ -76,5 +76,14 @@ namespace DataAccess.Sql {
                 return ResourceManager.GetString("GetAllEmployees", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        public static string GetAvailableTableByPeopleCapacity {
+            get {
+                return ResourceManager.GetString("GetAvalibleTableByPeopleCapacity", resourceCulture);
+            }
+        }
     }
 }

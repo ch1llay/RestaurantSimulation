@@ -1,10 +1,17 @@
-﻿using Domain.Interfaces;
-using Models.DbModels;
+﻿using DataAccess.Interfaces;
+using Domain.Interfaces;
+using Models.Domain;
 
 namespace Domain;
 
 public class OrderRepository : IOrderRepository
 {
+    private readonly IDataContext _dataContext;
+    public OrderRepository(IDataContext dataContext)
+    {
+        _dataContext = dataContext;
+    }
+
     public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbOrder> models)
     {
         throw new NotImplementedException();
