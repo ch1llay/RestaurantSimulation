@@ -14,7 +14,6 @@ using Service;
 using Service.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Configure();
 
@@ -58,10 +57,16 @@ namespace RestourantSimulation
                 .ConfigureRunner(c => c.ConfigureMigrator(builder.Configuration))
                 .AddLogging();
 
+           builder.ConfigureService();
+           builder.Services.AddControllers();
+           builder.Services.AddAutoMapper(typeof(AppMappingProfile));
+        }
+
+        public static void ConfigureServiceStandart(WebApplicationBuilder builder)
+        {
             builder.Services.AddTransientGroup();
             builder.Services.AddScopedGroup();
             builder.Services.AddSingletonGroup();
-            builder.Services.AddControllers();
         }
 
         public static void ConfigureService(this WebApplicationBuilder builder)

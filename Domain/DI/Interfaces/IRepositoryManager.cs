@@ -1,4 +1,5 @@
-﻿using DataAccess.DI.Interfaces;
+﻿using AutoMapper;
+using DataAccess.DI.Interfaces;
 using DataAccess.Interfaces;
 using Domain.Repositories;
 using Domain.Repositories.Interfaces;
@@ -14,5 +15,6 @@ public interface IRepositoryManager
     public OrderRepository OrderRepository { get; }
     public ITableRepository TableRepository { get; }
     public IProductRepository ProductRepository { get; }
+    public IMapper Mapper { get; }
     
 }

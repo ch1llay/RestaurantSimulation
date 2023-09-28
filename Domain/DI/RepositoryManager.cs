@@ -1,4 +1,5 @@
-﻿using DataAccess.DI.Interfaces;
+﻿using AutoMapper;
+using DataAccess.DI.Interfaces;
 using DataAccess.Interfaces;
 using Domain.DI.Interfaces;
 using Domain.Repositories;
@@ -15,8 +16,9 @@ public class RepositoryManager : IRepositoryManager
     private readonly Lazy<OrderRepository> _lazyOrderRepository;
     private readonly Lazy<ITableRepository> _lazyTableRepository;
     private readonly Lazy<IProductRepository> _lazyProductRepository;
+    private readonly IMapper _mapper;
 
-    public RepositoryManager(IDataContextManager dataContextManager)
+    public RepositoryManager(IDataContextManager dataContextManager, IMapper mapper)
     {
         _lazyDishRepository = new Lazy<IDishRepository>(() => new DishRepository(dataContextManager));
         _lazyDrinkRepository = new Lazy<IDrinkRepository>(() => new DrinkRepository(dataContextManager));
@@ -25,6 +27,7 @@ public class RepositoryManager : IRepositoryManager
         _lazyOrderRepository = new Lazy<OrderRepository>(() => new OrderRepository(dataContextManager));
         _lazyTableRepository = new Lazy<ITableRepository>(() => new TableRepository(dataContextManager));
         _lazyProductRepository = new Lazy<IProductRepository>(() => new ProductRepository(dataContextManager));
+        _mapper = mapper;
     }
 
 
@@ -35,4 +38,5 @@ public class RepositoryManager : IRepositoryManager
     public OrderRepository OrderRepository => _lazyOrderRepository.Value;
     public ITableRepository TableRepository => _lazyTableRepository.Value;
     public IProductRepository ProductRepository => _lazyProductRepository.Value;
+    public IMapper Mapper => _mapper;
 }

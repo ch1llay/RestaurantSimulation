@@ -36,6 +36,8 @@
 
 
     <ItemGroup>
+        <Folder Include="Sql\Get\CookingDrink\" />
+        <Folder Include="Sql\Get\Drink\" />
         <Folder Include="Sql\Update\"/>
     </ItemGroup>
 

@@ -1,20 +1,29 @@
 ﻿using Domain.DI.Interfaces;
+using Domain.Repositories.Interfaces;
 using Models.Application;
 using Models.Enums;
 using Service.DI.Interfaces;
 using Service.Services.Interfaces;
+using AutoMapper;
+using Models.Domain;
 
 namespace Service.Services;
 
 public class EmployeeService : IEmployeeService
 {
+    private readonly IEmployeeRepository _employeeRepository;
+    private IMapper _mapper;
     public EmployeeService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
-        
+        _employeeRepository = repositoryManager.EmployeeRepository;
+        _mapper = serviceManager.Mapper;
     }
-    public Task<Employee> Add(Employee dishT)
+    public async Task<Employee> Add(Employee employee)
     {
-        throw new NotImplementedException();
+       var dbEmployee = _mapper.Map<DbEmployee>(employee);
+       await _employeeRepository.Add(dbEmployee);
+
+       return _mapper.Map<Employee>(dbEmployee);
     }
 
     public Task<List<Employee?>> AddMany(List<Employee> dishes)

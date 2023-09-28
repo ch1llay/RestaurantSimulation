@@ -2,6 +2,7 @@
 using Models.Application;
 using Models.Application.Items;
 using Models.Enums;
+using Service.DI.Interfaces;
 using Service.Services.Interfaces;
 
 namespace RestourantSimulation;
@@ -13,12 +14,12 @@ public class EmployeeController : Controller
 
     private IEmployeeService _employeeService;
     
-    public EmployeeController(IEmployeeService employeeService)
+    public EmployeeController(IServiceManager serviceManager)
     {
-        _employeeService = employeeService;
+        _employeeService = serviceManager.EmployeeService;
     }
 
-    [HttpPost]
+    [HttpPost("add")]
     public async Task<IActionResult> Add(Employee employee)
     {
         return Ok(await _employeeService.Add(employee));
