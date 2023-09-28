@@ -12,7 +12,7 @@ public class OrderRepository : IOrderRepository
         _dataContext = dataContext;
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbOrder> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbOrder> dbEmployees)
     {
         throw new NotImplementedException();
     }

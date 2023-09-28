@@ -5,8 +5,8 @@ namespace Service.Services.Interfaces;
 
 public interface IDishService
 {
-    public List<Dish> GetAll();
-    public List<Dish> GetAllAvailable();
-    public List<Dish> GetByType(DishType type);
-    Task<List<Dish>> GetByIds(List<int> orderDishIds);
+    public IEnumerable<Dish> GetAll();
+    public IEnumerable<Dish> GetAllAvailable();
+    public IEnumerable<Dish> GetByType(DishType type);
+    Task<IEnumerable<Dish>> GetByIds(IEnumerable<int> orderDishIds);
 }

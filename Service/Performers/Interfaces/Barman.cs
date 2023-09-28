@@ -2,4 +2,4 @@
 
 namespace Service.Performers.Interfaces;
 
-public interface IBarman : IPerformers<ReadyDrink, Drink> { }
+public abstract class Barman : Performer { }

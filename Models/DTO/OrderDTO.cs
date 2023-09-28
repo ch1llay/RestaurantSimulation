@@ -1,3 +1,9 @@
-﻿namespace Models.DTO;
+﻿using Models.Application;
 
-public class OrderDTO { }
+namespace Models.DTO;
+
+public class OrderDTO
+{
+    public List<ReadyDish?> Dishes { get; set; }
+    public List<ReadyDrink?> Drinks { get; set; }
+}

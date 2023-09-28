@@ -2,19 +2,20 @@
 using Models.Enums;
 using Service.Performers;
 using Service.Performers.Interfaces;
+using Service.Preparing;
+using Service.Preparing.Interfaces;
 
 namespace Service.Factories;
 
-public class CookFactory
+public class CookFactory : PerformerContextFactory
 {
-    public static ICook GetCook(Dish dish)
+    public override Performer GetPerformer()
     {
-        return dish.DishType switch
-        {
-            DishType.Cold => new ColdCook(),
-            DishType.Hot => new HotCook(),
-            DishType.Confectionery => new ConfectioneryCook(),
-            _ => throw new ArgumentOutOfRangeException(nameof(dish.DishType))
-        };
+        return new CookMaster();
+    }
+
+    public override WorkPlace GetWorkPlace()
+    {
+        return new Kitchen();
     }
 }

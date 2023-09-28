@@ -1,3 +1,9 @@
-﻿namespace Service.Services.Interfaces;
+﻿using Models.Application;
 
-public interface ICookingService { }
+namespace Service.Services.Interfaces;
+
+public interface ICookingService
+{
+    public IEnumerable<ReadyDrink?> PrepareDrinks(IEnumerable<Drink> drinks);
+    public IEnumerable<ReadyDish?> PrepareDishes(IEnumerable<Dish> dishes);
+}

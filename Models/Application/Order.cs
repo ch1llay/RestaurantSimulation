@@ -2,8 +2,8 @@
 
 public class Order
 {
-    public List<int> DishIds { get; set; }
-    public List<int> DrinkIds { get; set; }
-    public List<int> ProductIdsForExcept { get; set; }
+    public IEnumerable<int> DishIds { get; set; }
+    public IEnumerable<int> DrinkIds { get; set; }
+    public IEnumerable<int> ProductIdsForExcept { get; set; }
     public int PeopleAmount { get; set; }
 }

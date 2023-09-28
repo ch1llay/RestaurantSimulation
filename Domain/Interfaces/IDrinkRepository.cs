@@ -24,7 +24,7 @@ public class IDrinkRepository : IRepository<DbDrink>
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDrink> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDrink> dbEmployees)
     {
         throw new NotImplementedException();
     }

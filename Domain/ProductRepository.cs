@@ -33,7 +33,7 @@ public class ProductRepository : IProductRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbProduct> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbProduct> dbEmployees)
     {
         throw new NotImplementedException();
     }

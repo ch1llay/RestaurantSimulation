@@ -3,14 +3,14 @@ using Service.Performers.Interfaces;
 
 namespace Service.Performers;
 
-public class ColdCook : ICook
+public class ColdCook : Cook
 {
-    public Dish Prepare(ReadyDish sourceItem)
+    public override ReadyOrderItem Prepare(OrderItem? item)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<Dish> Prepare(IEnumerable<ReadyDish> sourceItem)
+    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> sourceItems)
     {
         throw new NotImplementedException();
     }

@@ -15,13 +15,11 @@ public class EmployeeRepository : IEmployeeRepository
         _dataContext = dataContext;
     }
 
-    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> models)
+    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> dbEmployees)
     {
-        var ids = (await _dataContext.InsertManyAsync(Sql.InsertEmployee, models)).ToList();
+        var ids = (await _dataContext.InsertManyAsync(Sql.InsertEmployee, dbEmployees)).ToList();
 
         var i = 0;
-        var dbEmployees = models.ToList();
-
         foreach (var model in dbEmployees)
         {
             model.Id = ids[i];

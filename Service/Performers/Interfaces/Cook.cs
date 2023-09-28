@@ -2,4 +2,4 @@
 
 namespace Service.Performers.Interfaces;
 
-public interface ICook : IPerformers<ReadyDish,Dish> { }
+public abstract class Cook : Performer { }

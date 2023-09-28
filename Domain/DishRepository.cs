@@ -32,7 +32,7 @@ public class DishRepository : IDishRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDish> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDish> dbEmployees)
     {
         throw new NotImplementedException();
     }

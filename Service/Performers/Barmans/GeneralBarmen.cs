@@ -3,14 +3,14 @@ using Service.Performers.Interfaces;
 
 namespace Service.Performers.Barmans;
 
-public class GeneralBarmen : IBarman
+public class GeneralBarmen : Barman
 {
-    public Drink Prepare(ReadyDrink sourceItem)
+    public override ReadyOrderItem Prepare(OrderItem? item)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<Drink> Prepare(IEnumerable<ReadyDrink> sourceItem)
+    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> sourceItems)
     {
         throw new NotImplementedException();
     }

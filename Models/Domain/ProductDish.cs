@@ -1,6 +1,6 @@
 ﻿namespace Models.Domain;
 
-public class Productish
+public class ProducDish
 {
     public int Id { get; set; }
     public int DishId { get; set; }

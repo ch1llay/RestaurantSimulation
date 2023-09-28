@@ -21,7 +21,7 @@ public class EmployeeController : Controller
     }
 
     [HttpPost("employee/many")]
-    public async Task<IActionResult> AddMany(List<DbEmployee> employee)
+    public async Task<IActionResult> AddMany(IEnumerable<DbEmployee> employee)
     {
         return Ok(await employeeService.AddRange(employee));
     }

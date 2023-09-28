@@ -37,8 +37,7 @@ public class DapperContext : IDataContext
 
         await using var db = _connectionMethod();
         using IDbTransaction transaction = await db.BeginTransactionAsync();
-
-
+        
         var insertedObjectsIds = new List<int>();
 
         foreach (var item in objects)

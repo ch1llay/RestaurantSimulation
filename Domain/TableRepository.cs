@@ -34,7 +34,7 @@ public class TableRepository : ITableRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbTable> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbTable> dbEmployees)
     {
         throw new NotImplementedException();
     }

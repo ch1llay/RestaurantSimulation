@@ -11,7 +11,7 @@ public class CookingDishRepository : ICookingDishRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<CookingDish> models)
+    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<CookingDish> dbEmployees)
     {
         throw new NotImplementedException();
     }
