@@ -2,8 +2,8 @@
 
 namespace Domain.Repositories.Interfaces;
 
-public interface ICookingDishRepository : IRepository<CookingDish>
+public interface ICookingDishRepository : IRepository<DbCookingDish>
 {
-    public IEnumerable<CookingDish> GetByOrder(int orderId);
-    public IEnumerable<CookingDish> GetByProducts(IEnumerable<int> productIds);
+    public IEnumerable<DbCookingDish> GetByOrder(int orderId);
+    public IEnumerable<DbCookingDish> GetByProducts(IEnumerable<int> productIds);
 }

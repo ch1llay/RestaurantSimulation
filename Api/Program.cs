@@ -2,7 +2,6 @@ using DataAccess;
 using DataAccess.DI;
 using DataAccess.DI.Interfaces;
 using DataAccess.Interfaces;
-using Domain;
 using Domain.DI;
 using Domain.DI.Interfaces;
 using Domain.Repositories;
@@ -10,10 +9,10 @@ using Domain.Repositories.Interfaces;
 using FluentMigrator.Runner;
 using RestourantSimulation;
 using RestourantSimulation.Middlwares;
-using Service;
 using Service.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Configure();
 
@@ -57,9 +56,9 @@ namespace RestourantSimulation
                 .ConfigureRunner(c => c.ConfigureMigrator(builder.Configuration))
                 .AddLogging();
 
-           builder.ConfigureService();
-           builder.Services.AddControllers();
-           builder.Services.AddAutoMapper(typeof(AppMappingProfile));
+            builder.ConfigureService();
+            builder.Services.AddControllers();
+            builder.Services.AddAutoMapper(typeof(AppMappingProfile));
         }
 
         public static void ConfigureServiceStandart(WebApplicationBuilder builder)

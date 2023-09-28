@@ -20,14 +20,11 @@ public class OrderController : Controller
     {
         return Ok(await _orderService.MakeOrder(order));
     }
-    
-    
+
+
     [HttpGet("all")]
     public async Task<IActionResult> GetOrders()
     {
         return Ok(await _orderService.GetOrders());
     }
-    
-    
-    
 }

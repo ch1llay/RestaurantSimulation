@@ -8,9 +8,11 @@ namespace Domain.Repositories;
 
 public class DishRepository : IDishRepository
 {
-    public DishRepository(IDataContextManager dataContext)
+    private readonly IDataContext _dataContext;
+
+    public DishRepository(IDataContextManager dataContextManager)
     {
-        throw new NotImplementedException();
+        _dataContext = dataContextManager.DataContext;
     }
 
     public Task<IEnumerable<DbDish>> Get(IEnumerable<int> ids)
@@ -33,12 +35,12 @@ public class DishRepository : IDishRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbDish> dbEmployees)
+    public Task<IEnumerable<DbDish>> AddRange(IEnumerable<DbDish> dbEmployees)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<CookingDish> GetByType(DishType dishType)
+    public IEnumerable<DbCookingDish> GetByType(DishType dishType)
     {
         throw new NotImplementedException();
     }

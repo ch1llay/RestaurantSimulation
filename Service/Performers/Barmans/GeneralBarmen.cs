@@ -1,5 +1,4 @@
-﻿using Models.Application;
-using Models.Application.Items;
+﻿using Models.Application.Items;
 using Models.Application.ReadyItems;
 using Service.Performers.Interfaces;
 

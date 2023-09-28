@@ -8,15 +8,15 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Dapper" Version="2.0.151"/>
-        <PackageReference Include="FluentMigrator.Runner" Version="3.3.2"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.20"/>
-        <PackageReference Include="MongoDB.Bson" Version="2.21.0"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.21.0"/>
-        <PackageReference Include="MongoDB.Driver.Core" Version="2.21.0"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="Npgsql" Version="7.0.6"/>
-        <PackageReference Include="System.Data.SqlClient" Version="4.8.5"/>
+        <PackageReference Include="Dapper" Version="2.0.151" />
+        <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.20" />
+        <PackageReference Include="MongoDB.Bson" Version="2.21.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
+        <PackageReference Include="MongoDB.Driver.Core" Version="2.21.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Npgsql" Version="7.0.6" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     </ItemGroup>
 
 
@@ -31,15 +31,10 @@
 
 
     <ItemGroup>
-        <ProjectReference Include="..\Models\Models.csproj"/>
+        <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
 
 
-    <ItemGroup>
-        <Folder Include="Sql\Get\CookingDrink\" />
-        <Folder Include="Sql\Get\Drink\" />
-        <Folder Include="Sql\Update\"/>
-    </ItemGroup>
 
 
 </Project>

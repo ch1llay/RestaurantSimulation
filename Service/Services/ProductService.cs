@@ -15,7 +15,7 @@ public class ProductService : IProductService
     {
         _productRepository = repositoryManager.ProductRepository;
     }
-    
+
     public ProductService(IProductRepository productRepository)
     {
         _productRepository = productRepository;

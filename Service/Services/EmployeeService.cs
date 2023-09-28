@@ -1,34 +1,39 @@
-﻿using Domain.DI.Interfaces;
+﻿using AutoMapper;
+using Domain.DI.Interfaces;
 using Domain.Repositories.Interfaces;
 using Models.Application;
+using Models.Domain;
 using Models.Enums;
 using Service.DI.Interfaces;
 using Service.Services.Interfaces;
-using AutoMapper;
-using Models.Domain;
 
 namespace Service.Services;
 
 public class EmployeeService : IEmployeeService
 {
     private readonly IEmployeeRepository _employeeRepository;
-    private IMapper _mapper;
+    private readonly IMapper _mapper;
+
     public EmployeeService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
         _employeeRepository = repositoryManager.EmployeeRepository;
         _mapper = serviceManager.Mapper;
     }
+
     public async Task<Employee> Add(Employee employee)
     {
-       var dbEmployee = _mapper.Map<DbEmployee>(employee);
-       await _employeeRepository.Add(dbEmployee);
+        var dbEmployee = _mapper.Map<DbEmployee>(employee);
+        await _employeeRepository.Add(dbEmployee);
 
-       return _mapper.Map<Employee>(dbEmployee);
+        return _mapper.Map<Employee>(dbEmployee);
     }
 
-    public Task<List<Employee?>> AddMany(List<Employee> dishes)
+    public async Task<List<Employee>> AddMany(List<Employee> employees
+    )
     {
-        throw new NotImplementedException();
+        var employeesDb = await _employeeRepository.AddRange(_mapper.Map<List<DbEmployee>>(employees));
+
+        return _mapper.Map<List<Employee>>(employeesDb);
     }
 
     public Task<IEnumerable<Employee>> GetAll()

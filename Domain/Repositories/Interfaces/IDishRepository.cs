@@ -5,5 +5,5 @@ namespace Domain.Repositories.Interfaces;
 
 public interface IDishRepository : IRepository<DbDish>
 {
-    public IEnumerable<CookingDish> GetByType(DishType dishType);
+    public IEnumerable<DbCookingDish> GetByType(DishType dishType);
 }

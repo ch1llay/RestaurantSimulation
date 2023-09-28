@@ -1,6 +1,3 @@
 ﻿namespace Models.Enums;
 
-public enum GlassType
-{
-    
-}
+public enum GlassType { }

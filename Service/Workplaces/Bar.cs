@@ -14,6 +14,5 @@ public class Bar : WorkPlace
             .AddIce();
 
         return drink;
-        
     }
 }

@@ -10,10 +10,11 @@ namespace Service.Services;
 
 public class OrderService : IOrderService
 {
+    private readonly ICookingService _cookingService;
     private readonly IDishService _dishService;
     private readonly IDrinkService _drinkService;
     private readonly ITableRepository _tableRepository;
-    private readonly ICookingService _cookingService;
+
     public OrderService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
         _dishService = serviceManager.DishService;
@@ -40,9 +41,8 @@ public class OrderService : IOrderService
         {
             Drinks = enumerable.ToList(),
             Dishes = readyDishes.ToList(),
-            TotalAmount = readyDishes.Sum(r=>r.Dish.Cost) + enumerable.Sum(r=>r.Drink.Cost)
+            TotalAmount = readyDishes.Sum(r => r.Dish.Cost) + enumerable.Sum(r => r.Drink.Cost)
         };
-
     }
 
     public Task<Order?> GetOrders()

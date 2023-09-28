@@ -1,5 +1,4 @@
-﻿using DataAccess.DI;
-using DataAccess.DI.Interfaces;
+﻿using DataAccess.DI.Interfaces;
 using DataAccess.Interfaces;
 using Domain.Repositories.Interfaces;
 using Models.Domain;
@@ -35,7 +34,7 @@ public class ProductRepository : IProductRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbProduct> dbEmployees)
+    public Task<IEnumerable<DbProduct>> AddRange(IEnumerable<DbProduct> dbEmployees)
     {
         throw new NotImplementedException();
     }

@@ -1,5 +1,4 @@
 ﻿using Domain.DI.Interfaces;
-using Models.Application;
 using Models.Application.Items;
 using Models.Enums;
 using Service.DI.Interfaces;
@@ -9,10 +8,8 @@ namespace Service.Services;
 
 public class DrinkService : IDrinkService
 {
-    public DrinkService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
-    {
-        
-    }
+    public DrinkService(IRepositoryManager repositoryManager, IServiceManager serviceManager) { }
+
     public Task<IEnumerable<Drink>> GetAll()
     {
         throw new NotImplementedException();
@@ -38,11 +35,6 @@ public class DrinkService : IDrinkService
         throw new NotImplementedException();
     }
 
-    public Task<List<Drink?>> AddMany(List<Drink> dishes)
-    {
-        throw new NotImplementedException();
-    }
-
     public Task<List<Drink?>> GetByTypeAvailable(DrinkType dishType)
     {
         throw new NotImplementedException();
@@ -54,6 +46,11 @@ public class DrinkService : IDrinkService
     }
 
     public Task<bool?> Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<Drink>> AddMany(List<Drink> dishes)
     {
         throw new NotImplementedException();
     }

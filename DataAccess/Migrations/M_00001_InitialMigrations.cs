@@ -75,14 +75,14 @@ public class M_00001_InitialMigrations : Migration
         
         Create.Table("ProductCookingDish")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
-            .WithColumn("WithColumn").AsInt32().ForeignKey("CookingDishId", "CookingDishes", "Id")
+            .WithColumn("CookingDishId").AsInt32().ForeignKey("CookingDishes", "Id")
             .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
         
         Create.Table("ProductCookingDrink")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
-            .WithColumn("WithColumn").AsInt32().ForeignKey("CookingDishId", "CookingDishes", "Id")
+            .WithColumn("CookingDrinkId").AsInt32().ForeignKey("CookingDrinks", "Id")
             .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();

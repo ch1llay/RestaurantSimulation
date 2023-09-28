@@ -7,7 +7,7 @@ namespace RestourantSimulation;
 public class AppMappingProfile : Profile
 {
     public AppMappingProfile()
-    {			
+    {
         CreateMap<DbEmployee, Employee>().ReverseMap();
     }
 }

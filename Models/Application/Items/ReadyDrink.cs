@@ -7,9 +7,9 @@ public class ReadyDrink : ReadyOrderItem
 {
     public GlassType GlassType { get; set; }
     public bool IsStraw { get; set; }
-    public bool HasIce{ get; set; }
+    public bool HasIce { get; set; }
     public Drink Drink { get; set; }
-    
+
     public override MenuItemType MenuItemType => MenuItemType.Drink;
 
     public ReadyDrink AddIce()
@@ -18,6 +18,7 @@ public class ReadyDrink : ReadyOrderItem
 
         return this;
     }
+
     public ReadyDrink AddStraw()
     {
         IsStraw = true;

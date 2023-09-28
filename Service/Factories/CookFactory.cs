@@ -1,7 +1,4 @@
-﻿using Models.Application;
-using Models.Enums;
-using Service.Performers;
-using Service.Performers.Cooks;
+﻿using Service.Performers.Cooks;
 using Service.Performers.Interfaces;
 using Service.Workplaces;
 using Service.Workplaces.Interfaces;

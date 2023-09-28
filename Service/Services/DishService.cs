@@ -1,6 +1,8 @@
-﻿using Domain.DI.Interfaces;
-using Models.Application;
+﻿using AutoMapper;
+using Domain.DI.Interfaces;
+using Domain.Repositories.Interfaces;
 using Models.Application.Items;
+using Models.Domain;
 using Models.Enums;
 using Service.DI.Interfaces;
 using Service.Services.Interfaces;
@@ -9,10 +11,15 @@ namespace Service.Services;
 
 public class DishService : IDishService
 {
+    private readonly IDishRepository _dishRepository;
+    private readonly IMapper _mapper;
+
     public DishService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
-        
+        _dishRepository = repositoryManager.DishRepository;
+        _mapper = serviceManager.Mapper;
     }
+
     public Task<IEnumerable<Dish>> GetAll()
     {
         throw new NotImplementedException();
@@ -33,14 +40,18 @@ public class DishService : IDishService
         throw new NotImplementedException();
     }
 
-    public Task<Dish> Add(Dish dishT)
+    public async Task<Dish> Add(Dish dishT)
     {
-        throw new NotImplementedException();
+        var dishDb = await _dishRepository.Add(_mapper.Map<DbDish>(dishT));
+
+        return _mapper.Map<Dish>(dishDb);
     }
 
-    public Task<List<Dish?>> AddMany(List<Dish> dishes)
+    public async Task<List<Dish>> AddMany(List<Dish> dishes)
     {
-        throw new NotImplementedException();
+        var dishesDb = await _dishRepository.AddRange(_mapper.Map<List<DbDish>>(dishes));
+
+        return _mapper.Map<List<Dish>>(dishesDb);
     }
 
     public Task<List<Dish?>> GetByTypeAvailable(DishType dishType)

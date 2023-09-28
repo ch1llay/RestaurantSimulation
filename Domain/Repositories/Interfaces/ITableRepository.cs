@@ -2,7 +2,7 @@
 
 namespace Domain.Repositories.Interfaces;
 
-public interface ITableRepository : IRepository<DbTable>
+public interface ITableRepository : IRepository<DbDbTable>
 {
-    public Task<DbTable?> GetAvailableByPeopleCapacity(int peopleAmount);
+    public Task<DbDbTable?> GetAvailableByPeopleCapacity(int peopleAmount);
 }

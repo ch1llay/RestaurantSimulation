@@ -8,12 +8,13 @@ namespace Domain.Repositories;
 public class OrderRepository : IOrderRepository
 {
     private readonly IDataContext _dataContext;
+
     public OrderRepository(IDataContextManager dataContextManager)
     {
         _dataContext = dataContextManager.DataContext;
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbOrder> dbEmployees)
+    public Task<IEnumerable<DbOrder>> AddRange(IEnumerable<DbOrder> dbEmployees)
     {
         throw new NotImplementedException();
     }

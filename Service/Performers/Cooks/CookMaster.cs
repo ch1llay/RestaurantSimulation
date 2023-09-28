@@ -7,24 +7,22 @@ namespace Service.Performers.Cooks;
 
 public class CookMaster : Performer
 {
-    public Dictionary<DishType, Cook> _performers = new Dictionary<DishType, Cook>
+    public Dictionary<DishType, Cook> _performers = new()
     {
         {DishType.Cold, new ColdCook()},
         {DishType.Hot, new HotCook()},
         {DishType.Confectionery, new ConfectioneryCook()}
     };
+
     public override ReadyOrderItem Prepare(MenuItem? item)
     {
         var dish = item as Dish;
-        return _performers[dish.DishType].Prepare(dish);
 
+        return _performers[dish.DishType].Prepare(dish);
     }
 
     public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> sourceItems)
     {
-        foreach (var sourceItem in sourceItems)
-        {
-            yield return Prepare(sourceItem);
-        }
+        foreach (var sourceItem in sourceItems) yield return Prepare(sourceItem);
     }
 }

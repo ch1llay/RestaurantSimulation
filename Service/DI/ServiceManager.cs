@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using DataAccess.DI.Interfaces;
 using Domain.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
@@ -13,7 +12,6 @@ public class ServiceManager : IServiceManager
     private readonly Lazy<IEmployeeService> _lazyEmployeeService;
     private readonly Lazy<OrderService> _lazyOrderService;
     private readonly Lazy<IProductService> _lazyProductService;
-    private readonly IMapper _mapper;
 
     public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper)
     {
@@ -22,7 +20,7 @@ public class ServiceManager : IServiceManager
         _lazyEmployeeService = new Lazy<IEmployeeService>(() => new EmployeeService(repositoryManager, this));
         _lazyOrderService = new Lazy<OrderService>(() => new OrderService(repositoryManager, this));
         _lazyProductService = new Lazy<IProductService>(() => new ProductService(repositoryManager, this));
-        _mapper = mapper;
+        Mapper = mapper;
     }
 
 
@@ -31,5 +29,5 @@ public class ServiceManager : IServiceManager
     public IEmployeeService EmployeeService => _lazyEmployeeService.Value;
     public OrderService OrderService => _lazyOrderService.Value;
     public IProductService ProductService => _lazyProductService.Value;
-    public IMapper Mapper => _mapper;
+    public IMapper Mapper { get; }
 }

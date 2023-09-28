@@ -12,5 +12,5 @@ public interface IServiceManager
     public OrderService OrderService { get; }
     public IProductService ProductService { get; }
 
-    public IMapper Mapper { get;}
+    public IMapper Mapper { get; }
 }

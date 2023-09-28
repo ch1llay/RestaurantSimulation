@@ -7,42 +7,44 @@ namespace Domain.Repositories;
 
 public class CookingDishRepository : ICookingDishRepository
 {
-    public CookingDishRepository(IDataContextManager dataContext)
+    private readonly IDataContext _dataContext;
+
+    public CookingDishRepository(IDataContextManager dataContextManager)
+    {
+        _dataContext = dataContextManager.DataContext;
+    }
+
+    public Task<IEnumerable<DbCookingDish>> AddRange(IEnumerable<DbCookingDish> dbEmployees)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<CookingDish> dbEmployees)
+    public IEnumerable<DbCookingDish> GetByOrder(int orderId)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<CookingDish> GetByOrder(int orderId)
+    public IEnumerable<DbCookingDish> GetByProducts(IEnumerable<int> productIds)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<CookingDish> GetByProducts(IEnumerable<int> productIds)
+    public Task<IEnumerable<DbCookingDish>> Get(IEnumerable<int> ids)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<CookingDish>> Get(IEnumerable<int> ids)
+    public Task<IEnumerable<DbCookingDish>> GetAll()
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<CookingDish>> GetAll()
+    public Task<DbCookingDish> Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<CookingDish> Get(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<CookingDish> Add(CookingDish model)
+    public Task<DbCookingDish> Add(DbCookingDish model)
     {
         throw new NotImplementedException();
     }

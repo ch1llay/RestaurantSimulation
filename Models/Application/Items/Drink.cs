@@ -8,5 +8,4 @@ public class Drink : MenuItem
     public int Volume { get; set; }
     public DrinkType DrinkType { get; set; }
     public override MenuItemType MenuItemType => MenuItemType.Dish;
-
 }

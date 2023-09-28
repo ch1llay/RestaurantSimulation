@@ -20,7 +20,7 @@ public class ReadyDish : ReadyOrderItem
 
         return this;
     }
-    
+
     public ReadyDish AddFork()
     {
         NeedFork = true;
@@ -34,38 +34,33 @@ public class ReadyDish : ReadyOrderItem
 
         return this;
     }
-    
+
     public ReadyDish AddKnife()
     {
         NeedKnife = true;
 
         return this;
     }
-    
-    
-    
+
+
     public ReadyDish DeepPlate()
     {
         PlateSize = PlateSize.Deep;
 
         return this;
     }
-    
+
     public ReadyDish MediumPlate()
     {
         PlateSize = PlateSize.Medium;
 
         return this;
     }
-    
+
     public ReadyDish SmallPlate()
     {
         PlateSize = PlateSize.Small;
 
         return this;
     }
-    
-    
-    
 }
-

@@ -5,5 +5,5 @@ namespace Domain.Repositories.Interfaces;
 
 public interface IEmployeeRepository : IRepository<DbEmployee>
 {
-    public IEnumerable<DbEmployee> GetByEmployeeType(EmployeeType employeeType);
+    public Task<IEnumerable<DbEmployee>> GetByEmployeeType(EmployeeType employeeType);
 }

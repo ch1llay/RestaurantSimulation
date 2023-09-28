@@ -15,33 +15,33 @@ public class TableRepository : ITableRepository
         _dataContext = dataContextManager.DataContext;
     }
 
-    public Task<IEnumerable<DbTable>> Get(IEnumerable<int> ids)
+    public Task<IEnumerable<DbDbTable>> Get(IEnumerable<int> ids)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbTable>> GetAll()
+    public Task<IEnumerable<DbDbTable>> GetAll()
     {
         throw new NotImplementedException();
     }
 
-    public Task<DbTable> Get(int id)
+    public Task<DbDbTable> Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<DbTable> Add(DbTable model)
+    public Task<DbDbTable> Add(DbDbTable model)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbTable> dbEmployees)
+    public Task<IEnumerable<DbDbTable>> AddRange(IEnumerable<DbDbTable> dbEmployees)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<DbTable?> GetAvailableByPeopleCapacity(int peopleAmount)
+    public async Task<DbDbTable?> GetAvailableByPeopleCapacity(int peopleAmount)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbTable>(Sql.GetAvailableTableByPeopleCapacity, peopleAmount);
+        return await _dataContext.FirstOrDefaultAsync<DbDbTable>("", peopleAmount);
     }
 }
