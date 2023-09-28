@@ -119,81 +119,87 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="GetAllDishes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dish\GetAllDishes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAllDishes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAllDrinks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Drink\GetAllDrinks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAllDrinks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAllEmployees" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Employee\GetAllEmployees.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAllEmployees.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAllOrders" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Order\GetAllOrders.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAllOrders.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAllTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Table\GetAllTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAllTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAvailibleTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Table\GetAvailibleTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetAvailibleTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetCookingDishesByOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CookingDish\GetCookingDishesByOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetCookingDishesByOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetCookingDrinksByOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CookingDrink\GetCookingDrinksByOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetCookingDrinksByOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetDishById" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dish\GetDishById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetDishById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetDishByIds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dish\GetDishByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetDishByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetDishByType" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dish\GetDishByType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetDishByType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetDrinkById" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Drink\GetDrinkById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetDrinkById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetDrinkByType" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Drink\GetDrinkByType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetDrinkByType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
-  <data name="GetEmployeeByIds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Employee\GetEmployeeByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  <data name="GetEmployeeById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>GetEmployeeByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetEmployeesByIds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Employee\GetEmployeesByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetEmployeesByIds.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetOrdersByTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Order\GetOrdersByTable.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetOrdersByTable.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetProductDishByDish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>ProductDrink\GetProductDishByDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetProductDishByDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetProductDrinkByDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>ProductDish\GetProductDrinkByDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>GetProductDrinkByDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertCookingDish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CookingDish\InsertCookingDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertCookingDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertCookingDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CookingDrink\InsertCookingDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertCookingDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertDish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dish\InsertDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertEmployee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Employee\InsertEmployee.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertEmployee.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Order\InsertOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertOrder.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertProduct" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Product\InsertProduct.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertProduct.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertProductCookingDish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>ProductCookingDish\InsertProductCookingDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertProductCookingDish.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="InsertProductCookingDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>ProductCookingDrink\InsertProductCookingDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>InsertProductCookingDrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="SqlRes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Sql.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Sql_Designer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Sql.Designer.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

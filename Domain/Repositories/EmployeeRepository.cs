@@ -45,17 +45,17 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<IEnumerable<DbEmployee>> GetAll()
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>("", new { });
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Sql.GetAllEmployees, new { });
     }
 
     public async Task<DbEmployee> Get(int id)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbEmployee > ("", new {id = id});
+        return await _dataContext.FirstOrDefaultAsync<DbEmployee > (Sql.GetEmployeeByIds, new {id = id});
     }
 
     public async Task<DbEmployee> Add(DbEmployee model)
     {
-        var id = await _dataContext.InsertAsync<int>("", model);
+        var id = await _dataContext.InsertAsync<int>(Sql.InsertEmployee, model);
         model.Id = id;
 
         return model;
