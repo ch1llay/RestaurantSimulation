@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using Dapper;
-using DataAccess.Interfaces;
+using DataAccess.DataContexts.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace DataAccess;
+namespace DataAccess.DataContexts;
 
 public class DapperContext : IDataContext
 {

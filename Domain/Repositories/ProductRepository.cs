@@ -1,5 +1,5 @@
-﻿using DataAccess.DI.Interfaces;
-using DataAccess.Interfaces;
+﻿using DataAccess.DataContexts.Interfaces;
+using DataAccess.DI.Interfaces;
 using Domain.Repositories.Interfaces;
 using Models.Domain;
 

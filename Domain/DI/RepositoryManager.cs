@@ -20,7 +20,6 @@ public class RepositoryManager : IRepositoryManager
     {
         _lazyDishRepository = new Lazy<IDishRepository>(() => new DishRepository(dataContextManager));
         _lazyDrinkRepository = new Lazy<IDrinkRepository>(() => new DrinkRepository(dataContextManager));
-        _lazyCookingDishRepository = new Lazy<ICookingDishRepository>(() => new CookingDishRepository(dataContextManager));
         _lazyEmployeeRepository = new Lazy<IEmployeeRepository>(() => new EmployeeRepository(dataContextManager));
         _lazyOrderRepository = new Lazy<OrderRepository>(() => new OrderRepository(dataContextManager));
         _lazyTableRepository = new Lazy<ITableRepository>(() => new TableRepository(dataContextManager));

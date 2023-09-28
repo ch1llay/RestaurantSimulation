@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.Application.Items;
 using Models.Enums;
+using Service.DI.Interfaces;
 using Service.Services.Interfaces;
 
 namespace RestourantSimulation;
@@ -11,18 +12,18 @@ public class DishMenuController : Controller
 {
     private readonly IDishService _dishService;
 
-    public DishMenuController(IDishService dishService)
+    public DishMenuController(IServiceManager serviceManager)
     {
-        _dishService = dishService;
+        _dishService = serviceManager.DishService;
     }
 
-    [HttpPost]
+    [HttpPost("add")]
     public async Task<IActionResult> Add(Dish dish)
     {
         return Ok(await _dishService.Add(dish));
     }
 
-    [HttpPost]
+    [HttpPost("add-many")]
     public async Task<IActionResult> AddMany(List<Dish> dishes)
     {
         return Ok(await _dishService.AddMany(dishes));
@@ -60,13 +61,13 @@ public class DishMenuController : Controller
     }
 
 
-    [HttpPut]
+    [HttpPut("update")]
     public async Task<IActionResult> Update(Dish dish)
     {
         return Ok(await _dishService.Update(dish));
     }
 
-    [HttpPut]
+    [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
         return Ok(await _dishService.Delete(id));

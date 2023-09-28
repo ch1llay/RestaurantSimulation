@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Domain.DI.Interfaces;
+using Service.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
 
-namespace Service.DI.Interfaces;
+namespace Service.DI;
 
 public class ServiceManager : IServiceManager
 {

@@ -1,4 +1,4 @@
-﻿using DataAccess.Interfaces;
+﻿using DataAccess.DataContexts.Interfaces;
 
 namespace DataAccess.DI.Interfaces;
 

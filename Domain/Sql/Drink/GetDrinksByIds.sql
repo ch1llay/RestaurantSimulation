@@ -1,3 +1,3 @@
 select *
 from "Drinks"
-where "Id" = @id
+where "Id" in @ids

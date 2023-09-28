@@ -2,6 +2,7 @@
 using Domain.Repositories.Interfaces;
 using Models.Application;
 using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Models.DTO;
 using Service.DI.Interfaces;
 using Service.Services.Interfaces;
@@ -35,13 +36,12 @@ public class OrderService : IOrderService
         var readyDrinks = _cookingService.PrepareDrinks(drinks);
         var readyDishes = _cookingService.PrepareDishes(dishes);
 
-        var enumerable = readyDrinks as ReadyDrink[] ?? readyDrinks.ToArray();
 
         return new OrderDTO
         {
-            Drinks = enumerable.ToList(),
+            Drinks = readyDrinks.ToList(),
             Dishes = readyDishes.ToList(),
-            TotalAmount = readyDishes.Sum(r => r.Dish.Cost) + enumerable.Sum(r => r.Drink.Cost)
+            TotalAmount = readyDishes.Sum(r => r.Dish.Cost) + readyDrinks.Sum(r => r.Drink.Cost)
         };
     }
 

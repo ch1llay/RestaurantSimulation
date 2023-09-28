@@ -1,7 +1,8 @@
 using DataAccess;
+using DataAccess.DataContexts;
+using DataAccess.DataContexts.Interfaces;
 using DataAccess.DI;
 using DataAccess.DI.Interfaces;
-using DataAccess.Interfaces;
 using Domain.DI;
 using Domain.DI.Interfaces;
 using Domain.Repositories;
@@ -9,6 +10,7 @@ using Domain.Repositories.Interfaces;
 using FluentMigrator.Runner;
 using RestourantSimulation;
 using RestourantSimulation.Middlwares;
+using Service.DI;
 using Service.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
@@ -41,6 +43,19 @@ namespace RestourantSimulation
             app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.AddMigrations();
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
+
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    options.RoutePrefix = string.Empty;
+                });
+            }
         }
 
         public static void ConfigureMigrator(this IMigrationRunnerBuilder migrationRunnerBuilder, ConfigurationManager config)
@@ -58,6 +73,9 @@ namespace RestourantSimulation
 
             builder.ConfigureService();
             builder.Services.AddControllers();
+
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(typeof(AppMappingProfile));
         }
 
@@ -85,7 +103,6 @@ namespace RestourantSimulation
         {
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICookingDishRepository, CookingDishRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
         }

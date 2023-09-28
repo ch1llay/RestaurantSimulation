@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Interfaces;
+﻿namespace DataAccess.DataContexts.Interfaces;
 
 public interface IDataContext
 {

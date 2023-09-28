@@ -1,6 +1,7 @@
-﻿using DataAccess.DI.Interfaces;
-using DataAccess.Interfaces;
+﻿using DataAccess.DataContexts.Interfaces;
+using DataAccess.DI.Interfaces;
 using Domain.Repositories.Interfaces;
+using Domain.Sql.Drink;
 using Models.Domain;
 
 namespace Domain.Repositories;
@@ -14,53 +15,41 @@ public class DrinkRepository : IDrinkRepository
         _dataContext = dataContextManager.DataContext;
     }
 
-    Task<IEnumerable<DbDrink>> IRepository<DbDrink>.Get(IEnumerable<int> ids)
+    public async Task<IEnumerable<DbDrink>> Get(IEnumerable<int> ids)
     {
-        throw new NotImplementedException();
+        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(SqlDrink.GetAllDrinks, new {ids});
     }
 
-    Task<IEnumerable<DbDrink>> IDrinkRepository.GetAll()
+    public async Task<IEnumerable<DbDrink>> GetAll()
     {
-        throw new NotImplementedException();
+        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(SqlDrink.GetAllDrinks, new { });
     }
 
-    Task<DbDrink> IDrinkRepository.Get(int id)
+    public async Task<DbDrink?> Get(int id)
     {
-        throw new NotImplementedException();
+        return await _dataContext.FirstOrDefaultAsync<DbDrink>(SqlDrink.GetAllDrinks, new {id});
     }
 
-    Task<DbDrink> IDrinkRepository.Add(DbDrink model)
+    public async Task<DbDrink> Add(DbDrink model)
     {
-        throw new NotImplementedException();
+        var id = await _dataContext.InsertAsync<int>(SqlDrink.GetAllDrinks, model);
+        model.Id = id;
+
+        return model;
     }
 
-    Task<IEnumerable<DbEmployee>> IDrinkRepository.AddRange(IEnumerable<DbDrink> dbEmployees)
+    public async Task<IEnumerable<DbDrink>> AddRange(IEnumerable<DbDrink> dbDrinks)
     {
-        throw new NotImplementedException();
-    }
+        var ids = (await _dataContext.InsertManyAsync(SqlDrink.GetAllDrinks, dbDrinks)).ToList();
 
-    Task<IEnumerable<DbDrink>> IDrinkRepository.Get(IEnumerable<int> ids)
-    {
-        throw new NotImplementedException();
-    }
+        var i = 0;
 
-    Task<IEnumerable<DbDrink>> IRepository<DbDrink>.GetAll()
-    {
-        throw new NotImplementedException();
-    }
+        foreach (var model in dbDrinks)
+        {
+            model.Id = ids[i];
+            i++;
+        }
 
-    Task<DbDrink> IRepository<DbDrink>.Get(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<DbDrink> IRepository<DbDrink>.Add(DbDrink model)
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<IEnumerable<DbDrink>> IRepository<DbDrink>.AddRange(IEnumerable<DbDrink> dbEmployees)
-    {
-        throw new NotImplementedException();
+        return dbDrinks;
     }
 }

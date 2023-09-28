@@ -67,7 +67,7 @@ public class EmployeeController : Controller
         return Ok(await _employeeService.Update(employee));
     }
 
-    [HttpPut]
+    [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
         return Ok(await _employeeService.Delete(id));

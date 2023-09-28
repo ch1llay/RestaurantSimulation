@@ -1,8 +1,7 @@
-﻿using DataAccess.DI.Interfaces;
-using DataAccess.Interfaces;
-using DataAccess.Sql;
+﻿using DataAccess.DataContexts.Interfaces;
+using DataAccess.DI.Interfaces;
 using Domain.Repositories.Interfaces;
-using Models.Application;
+using Domain.Sql.Employee;
 using Models.Domain;
 using Models.Enums;
 
@@ -19,7 +18,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> dbEmployees)
     {
-        var ids = (await _dataContext.InsertManyAsync("", dbEmployees)).ToList();
+        var ids = (await _dataContext.InsertManyAsync(SqlEmployee.InsertEmployee, dbEmployees)).ToList();
 
         var i = 0;
 
@@ -34,28 +33,27 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<IEnumerable<DbEmployee>> GetByEmployeeType(EmployeeType employeeType)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>("", new {employeeType = employeeType});
-
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetAllEmployees, new {employeeType});
     }
 
     public async Task<IEnumerable<DbEmployee>> Get(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>("", new {ids = ids});
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetEmployeesByIds, new {ids});
     }
 
     public async Task<IEnumerable<DbEmployee>> GetAll()
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Sql.GetAllEmployees, new { });
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetAllEmployees, new { });
     }
 
-    public async Task<DbEmployee> Get(int id)
+    public async Task<DbEmployee?> Get(int id)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbEmployee > (Sql.GetEmployeeByIds, new {id = id});
+        return await _dataContext.FirstOrDefaultAsync<DbEmployee>(SqlEmployee.InsertEmployee, new {id});
     }
 
     public async Task<DbEmployee> Add(DbEmployee model)
     {
-        var id = await _dataContext.InsertAsync<int>(Sql.InsertEmployee, model);
+        var id = await _dataContext.InsertAsync<int>(SqlEmployee.InsertEmployee, model);
         model.Id = id;
 
         return model;

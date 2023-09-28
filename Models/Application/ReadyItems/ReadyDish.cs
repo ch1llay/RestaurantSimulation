@@ -1,7 +1,7 @@
-﻿using Models.Application.ReadyItems;
+﻿using Models.Application.Items;
 using Models.Enums;
 
-namespace Models.Application.Items;
+namespace Models.Application.ReadyItems;
 
 public class ReadyDish : ReadyOrderItem
 {

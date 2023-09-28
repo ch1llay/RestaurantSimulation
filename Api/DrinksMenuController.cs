@@ -16,13 +16,13 @@ public class DrinkMenuController : Controller
         _drinkService = drinkService;
     }
 
-    [HttpPost]
+    [HttpPost("add")]
     public async Task<IActionResult> Add(Drink drink)
     {
         return Ok(_drinkService.Add(drink));
     }
 
-    [HttpPost]
+    [HttpPost("add-many")]
     public async Task<IActionResult> AddMany(List<Drink> drinks)
     {
         return Ok(await _drinkService.AddMany(drinks));
@@ -66,7 +66,7 @@ public class DrinkMenuController : Controller
         return Ok(await _drinkService.Update(drink));
     }
 
-    [HttpPut]
+    [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
         return Ok(await _drinkService.Delete(id));

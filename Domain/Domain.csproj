@@ -20,4 +20,57 @@
     </ItemGroup>
 
 
+    <ItemGroup>
+        <Compile Update="Sql\Dish\SqlDish.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SqlDish.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Drink\SqlDrink.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SqlDrink.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Employee\SqlEmployee.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SqlEmployee.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Order\SqlOrder.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SqlOrder.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Product\SqlProduct.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SqlProduct.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <EmbeddedResource Update="Sql\Dish\SqlDish.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SqlDish.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Drink\SqlDrink.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SqlDrink.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Employee\SqlEmployee.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SqlEmployee.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Order\SqlOrder.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SqlOrder.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Product\SqlProduct.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SqlProduct.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+
 </Project>
