@@ -1,40 +1,59 @@
-﻿using Domain.Interfaces;
-using Models.Domain;
+﻿using Domain.DI.Interfaces;
+using Models.Application;
+using Models.Enums;
+using Service.DI.Interfaces;
 using Service.Services.Interfaces;
 
 namespace Service.Services;
 
 public class EmployeeService : IEmployeeService
 {
-    private readonly IEmployeeRepository employeeRepository;
-    
-    public EmployeeService(IEmployeeRepository employeeRepository)
+    public EmployeeService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
-        employeeRepository = employeeRepository;
+        
     }
-
-    public async Task<DbEmployee> Add(DbEmployee employee)
-    {
-        employee = await employeeRepository.Add(employee);
-
-        return employee;
-    }
-
-    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> employees)
-    {
-        var employeesAdded = await employeeRepository.AddRange(employees);
-
-        return employeesAdded;
-    }
-
-
-    public Task<DbEmployee> Get(int id)
+    public Task<Employee> Add(Employee dishT)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<DbEmployee>> GetAll()
+    public Task<List<Employee?>> AddMany(List<Employee> dishes)
     {
-        return await employeeRepository.GetAll();
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Employee>> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Employee>> GetByIds(IEnumerable<int> orderTIds)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Employee>> GetAllAvailable()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Employee>> GetByType(EmployeeType type)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<Employee?>> GetByTypeAvailable(EmployeeType dishType)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Employee?> Update(Employee dish)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool?> Delete(int id)
+    {
+        throw new NotImplementedException();
     }
 }

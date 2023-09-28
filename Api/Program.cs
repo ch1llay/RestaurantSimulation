@@ -1,11 +1,17 @@
 using DataAccess;
+using DataAccess.DI;
+using DataAccess.DI.Interfaces;
 using DataAccess.Interfaces;
 using Domain;
-using Domain.Interfaces;
+using Domain.DI;
+using Domain.DI.Interfaces;
+using Domain.Repositories;
+using Domain.Repositories.Interfaces;
 using FluentMigrator.Runner;
 using RestourantSimulation;
 using RestourantSimulation.Middlwares;
 using Service;
+using Service.DI.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
 
@@ -56,6 +62,13 @@ namespace RestourantSimulation
             builder.Services.AddScopedGroup();
             builder.Services.AddSingletonGroup();
             builder.Services.AddControllers();
+        }
+
+        public static void ConfigureService(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+            builder.Services.AddScoped<IServiceManager, ServiceManager>();
+            builder.Services.AddSingleton<IDataContextManager, DataContextManager>();
         }
 
         public static void AddTransientGroup(this IServiceCollection services)

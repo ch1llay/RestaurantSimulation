@@ -1,7 +1,9 @@
 ﻿using Models.Application;
+using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Service.Factories;
 using Service.Performers.Interfaces;
-using Service.Preparing.Interfaces;
+using Service.Workplaces.Interfaces;
 
 namespace Service;
 
@@ -16,10 +18,10 @@ public class PerformerContext
         _workPlace = factory.GetWorkPlace();
     }
 
-    public ReadyOrderItem Prepare(OrderItem? item)
+    public ReadyOrderItem Prepare(MenuItem? item)
     {
         var readyItem = _performer.Prepare(item);
-        _workPlace.Modfify(readyItem);
+        _workPlace.Modify(readyItem);
 
         return readyItem;
     }

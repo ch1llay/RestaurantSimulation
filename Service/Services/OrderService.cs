@@ -1,7 +1,9 @@
-﻿using Domain.Interfaces;
+﻿using Domain.DI.Interfaces;
+using Domain.Repositories.Interfaces;
 using Models.Application;
+using Models.Application.Items;
 using Models.DTO;
-using Service.Preparing.Interfaces;
+using Service.DI.Interfaces;
 using Service.Services.Interfaces;
 
 namespace Service.Services;
@@ -12,12 +14,9 @@ public class OrderService : IOrderService
     private readonly IDrinkService _drinkService;
     private readonly ITableRepository _tableRepository;
     private readonly ICookingService _cookingService;
-    public OrderService(IDishService dishService, IDrinkService drinkService, ITableRepository tableRepository, ICookingService cookingService)
+    public OrderService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
-        _dishService = dishService;
-        _drinkService = drinkService;
-        _tableRepository = tableRepository;
-        _cookingService = cookingService;
+        _dishService = serviceManager.DishService;
     }
 
     public async Task<OrderDTO?> MakeOrder(Order order)
@@ -35,12 +34,19 @@ public class OrderService : IOrderService
         var readyDrinks = _cookingService.PrepareDrinks(drinks);
         var readyDishes = _cookingService.PrepareDishes(dishes);
 
+        var enumerable = readyDrinks as ReadyDrink[] ?? readyDrinks.ToArray();
+
         return new OrderDTO
         {
-            Drinks = readyDrinks.ToList(),
-            Dishes = readyDishes.ToList()
+            Drinks = enumerable.ToList(),
+            Dishes = readyDishes.ToList(),
+            TotalAmount = readyDishes.Sum(r=>r.Dish.Cost) + enumerable.Sum(r=>r.Drink.Cost)
         };
 
     }
-    
+
+    public Task<Order?> GetOrders()
+    {
+        throw new NotImplementedException();
+    }
 }

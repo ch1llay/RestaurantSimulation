@@ -1,16 +1,17 @@
-﻿using Models.Application;
+﻿using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Service.Performers.Interfaces;
 
-namespace Service.Performers;
+namespace Service.Performers.Cooks;
 
 public class HotCook : Cook
 {
-    public override ReadyOrderItem Prepare(OrderItem? item)
+    public override ReadyOrderItem Prepare(MenuItem? item)
     {
         throw new NotImplementedException();
     }
 
-    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> sourceItems)
+    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> sourceItems)
     {
         throw new NotImplementedException();
     }

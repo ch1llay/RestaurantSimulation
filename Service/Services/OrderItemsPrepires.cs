@@ -1,4 +1,6 @@
 ﻿using Models.Application;
+using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Models.Enums;
 using Service.Factories;
 using Service.Performers.Interfaces;
@@ -8,21 +10,21 @@ namespace Service.Services;
 
 public class OrderItemsPrepires : IOrderItemsPrepires
 {
-    private readonly Dictionary<OrderItemType, PerformerContext> _creators =
-        new Dictionary<OrderItemType, PerformerContext>
+    private readonly Dictionary<MenuItemType, PerformerContext> _creators =
+        new Dictionary<MenuItemType, PerformerContext>
         {
-            {OrderItemType.Dish, new PerformerContext(new CookFactory())},
+            {MenuItemType.Dish, new PerformerContext(new CookFactory())},
             {
-                OrderItemType.Drink, new PerformerContext(new BarFactory())
+                MenuItemType.Drink, new PerformerContext(new BarFactory())
             }
         };
     
-    public ReadyOrderItem Prepare(OrderItem orderItem)
+    public ReadyOrderItem Prepare(MenuItem menuItem)
     {
-        return _creators[orderItem.OrderItemType].Prepare(orderItem);
+        return _creators[menuItem.MenuItemType].Prepare(menuItem);
     }
 
-    public IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> orderItems)
+    public IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> orderItems)
     {
         foreach (var orderItem in orderItems)
         {

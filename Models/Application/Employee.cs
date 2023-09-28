@@ -1,3 +1,6 @@
 ﻿namespace Models.Application;
 
-public class Employee { }
+public class Employee
+{
+    
+}

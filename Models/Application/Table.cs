@@ -1,4 +1,4 @@
-﻿namespace Models.Domain;
+﻿namespace Models.Application;
 
 public class Table
 {

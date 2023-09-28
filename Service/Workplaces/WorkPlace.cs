@@ -1,12 +1,18 @@
-﻿using Models.Application;
-using Service.Preparing.Interfaces;
+﻿using Models.Application.Items;
+using Models.Application.ReadyItems;
+using Service.Workplaces.Interfaces;
 
-namespace Service.Preparing;
+namespace Service.Workplaces;
 
 public class Kitchen : WorkPlace
 {
-    public override ReadyOrderItem Modfify(ReadyOrderItem orderItem)
+    public override ReadyOrderItem? Modify(ReadyOrderItem orderItem)
     {
-        throw new NotImplementedException();
+        var dish = orderItem as ReadyDish;
+
+        dish?.AddSpoon()
+            .MediumPlate();
+
+        return dish;
     }
 }

@@ -1,8 +1,9 @@
-﻿using Models.Application;
+﻿using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Models.Enums;
 using Service.Performers.Interfaces;
 
-namespace Service.Performers;
+namespace Service.Performers.Cooks;
 
 public class CookMaster : Performer
 {
@@ -12,14 +13,14 @@ public class CookMaster : Performer
         {DishType.Hot, new HotCook()},
         {DishType.Confectionery, new ConfectioneryCook()}
     };
-    public override ReadyOrderItem Prepare(OrderItem? item)
+    public override ReadyOrderItem Prepare(MenuItem? item)
     {
         var dish = item as Dish;
         return _performers[dish.DishType].Prepare(dish);
 
     }
 
-    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> sourceItems)
+    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> sourceItems)
     {
         foreach (var sourceItem in sourceItems)
         {

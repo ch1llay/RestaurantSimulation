@@ -15,9 +15,19 @@ public class OrderController : Controller
         _orderService = orderService;
     }
 
-    [HttpPost("order")]
+    [HttpPost]
     public async Task<IActionResult> MakeOrder(Order order)
     {
         return Ok(await _orderService.MakeOrder(order));
     }
+    
+    
+    [HttpGet("all")]
+    public async Task<IActionResult> GetOrders()
+    {
+        return Ok(await _orderService.GetOrders());
+    }
+    
+    
+    
 }

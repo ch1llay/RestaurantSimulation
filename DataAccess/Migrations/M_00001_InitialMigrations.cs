@@ -1,5 +1,6 @@
 ﻿using FluentMigrator;
 using FluentMigrator.Expressions;
+using Models.Application;
 using Models.Domain;
 
 namespace DataAccess.Migrations;
@@ -25,6 +26,13 @@ public class M_00001_InitialMigrations : Migration
             .WithColumn("Name").AsString()
             .WithColumn("IsByWeight").AsBoolean()
             .WithColumn("Amount").AsInt32();
+        
+        Create.Table("Dishes")
+            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+            .WithColumn("Name").AsString()
+            .WithColumn("DrinkType").AsInt32()
+            .WithColumn("Cost").AsDecimal();
+
         
         Create.Table("Dishes")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()

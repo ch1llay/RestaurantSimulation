@@ -1,10 +1,7 @@
 ﻿using Models.Application;
+using Models.Application.Items;
 using Models.Enums;
 
 namespace Service.Services.Interfaces;
 
-public interface IDrinkService
-{
-    public Task<IEnumerable<Drink>> GetByIds(IEnumerable<int> ids);
-    public Task<IEnumerable<Drink>> GetByType(DrinkType type);
-}
+public interface IDrinkService : IMenuService<Drink, DrinkType> { }

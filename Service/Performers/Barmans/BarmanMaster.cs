@@ -1,4 +1,6 @@
 ﻿using Models.Application;
+using Models.Application.Items;
+using Models.Application.ReadyItems;
 using Models.Enums;
 using Service.Performers.Interfaces;
 
@@ -12,14 +14,14 @@ public class BarmanMaster : Barman
         {DrinkType.HotTonic, new GeneralBarmen()},
         {DrinkType.Strong, new GeneralBarmen()}
     };
-    public override ReadyOrderItem Prepare(OrderItem? item)
+    public override ReadyOrderItem Prepare(MenuItem? item)
     {
         var drink = item as Drink;
         return _performers[drink.DrinkType].Prepare(drink);
 
     }
 
-    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<OrderItem> sourceItems)
+    public override IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> sourceItems)
     {
         foreach (var sourceItem in sourceItems)
         {

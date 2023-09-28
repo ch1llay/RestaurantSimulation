@@ -1,6 +1,6 @@
 ﻿using Models.Enums;
 using Service.Performers.Interfaces;
-using Service.Preparing.Interfaces;
+using Service.Workplaces.Interfaces;
 
 namespace Service.Factories;
 

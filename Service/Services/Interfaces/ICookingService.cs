@@ -1,4 +1,5 @@
 ﻿using Models.Application;
+using Models.Application.Items;
 
 namespace Service.Services.Interfaces;
 

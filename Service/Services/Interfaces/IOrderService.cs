@@ -6,4 +6,5 @@ namespace Service.Services.Interfaces;
 public interface IOrderService
 {
     Task<OrderDTO?> MakeOrder(Order order);
+    Task<Order?> GetOrders();
 }

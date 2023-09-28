@@ -1,11 +1,9 @@
-﻿using Models.Domain;
+﻿using Models.Application;
+using Models.Domain;
+using Models.Enums;
 
 namespace Service.Services.Interfaces;
 
-public interface IEmployeeService
+public interface IEmployeeService : ICrudService<Employee, EmployeeType>
 {
-    public Task<DbEmployee> Add(DbEmployee employee);
-    public Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> employee);
-    public Task<DbEmployee> Get(int id);
-    Task<IEnumerable<DbEmployee>> GetAll();
 }
