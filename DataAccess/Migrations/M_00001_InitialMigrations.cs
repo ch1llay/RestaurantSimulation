@@ -27,7 +27,7 @@ public class M_00001_InitialMigrations : Migration
             .WithColumn("IsByWeight").AsBoolean()
             .WithColumn("Amount").AsInt32();
         
-        Create.Table("Dishes")
+        Create.Table("Drinks")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString()
             .WithColumn("DrinkType").AsInt32()
@@ -43,6 +43,11 @@ public class M_00001_InitialMigrations : Migration
         Create.Table("ProductDish")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("DishId").AsInt32().ForeignKey("Dishes", "Id")
+            .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id");
+        
+        Create.Table("ProductDrink")
+            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+            .WithColumn("DrinkId").AsInt32().ForeignKey("Drinks", "Id")
             .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id");
         
        
@@ -61,7 +66,21 @@ public class M_00001_InitialMigrations : Migration
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
         
+        Create.Table("CookingDrinks")
+            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+            .WithColumn("DrinkId").AsInt32().ForeignKey("Drinks", "Id")
+            .WithColumn("OrderId").AsInt32().ForeignKey("Orders", "Id")
+            .WithColumn("StartTime").AsDateTime()
+            .WithColumn("EndTime").AsDateTime();
+        
         Create.Table("ProductCookingDish")
+            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+            .WithColumn("WithColumn").AsInt32().ForeignKey("CookingDishId", "CookingDishes", "Id")
+            .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
+            .WithColumn("StartTime").AsDateTime()
+            .WithColumn("EndTime").AsDateTime();
+        
+        Create.Table("ProductCookingDrink")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("WithColumn").AsInt32().ForeignKey("CookingDishId", "CookingDishes", "Id")
             .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
