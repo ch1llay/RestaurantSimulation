@@ -7,6 +7,6 @@ public class HotCook : Cook
 {
     public override ReadyItem Prepare(MenuItem? item)
     {
-        return new ReadyDish().AddEmoji("🥣").AddSpoon();
+        return new ReadyDish(item).AddEmoji("🥣").AddSpoon();
     }
 }

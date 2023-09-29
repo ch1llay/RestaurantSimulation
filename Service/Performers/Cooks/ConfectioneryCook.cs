@@ -7,6 +7,6 @@ public class ConfectioneryCook : Cook
 {
     public override ReadyItem Prepare(MenuItem? item)
     {
-        return new ReadyDish().AddEmoji("🍰").AddFork();
+        return new ReadyDish(item).AddName(item.Name).AddEmoji("🍰").AddFork();
     }
 }

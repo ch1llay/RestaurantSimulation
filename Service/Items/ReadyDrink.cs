@@ -4,10 +4,16 @@ namespace Service.Items;
 
 public class ReadyDrink : ReadyItem
 {
-    public string Emoji { get; set; }
-    public bool IsNeedStraw { get; set; }
-    public bool IsNeedIce { get; set; }
-    public bool IsNeedPlate { get; set; }
+    public MenuItem MenuItem { get; private set; }
+
+    public ReadyDrink(MenuItem menuItem)
+    {
+        MenuItem = menuItem;
+    }
+    public string Emoji { get; private set; }
+    public bool IsNeedStraw { get; private set; }
+    public bool IsNeedIce { get; private set; }
+    public bool IsNeedPlate { get; private set; }
     public override MenuItemType MenuItemType => MenuItemType.Drink;
 
     public ReadyDrink AddStraw()
@@ -34,6 +40,13 @@ public class ReadyDrink : ReadyItem
     public ReadyDrink AddEmoji(string emoji)
     {
         Emoji = emoji;
+
+        return this;
+    }
+    
+    public ReadyDrink AddName(string name)
+    {
+        Name = name;
 
         return this;
     }
