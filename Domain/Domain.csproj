@@ -21,27 +21,45 @@
 
 
     <ItemGroup>
-        <Compile Update="Sql\Order\SqlOrder.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>SqlOrder.resx</DependentUpon>
-        </Compile>
         <Compile Update="Sql\Product\SqlProduct.Designer.cs">
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
             <DependentUpon>SqlProduct.resx</DependentUpon>
         </Compile>
+        <Compile Update="Sql\Dish\Dish.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Dish.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Drink\Drink.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Drink.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Sql\Employee\Employee.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Employee.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
 
     <ItemGroup>
-        <EmbeddedResource Update="Sql\Order\SqlOrder.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>SqlOrder.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
         <EmbeddedResource Update="Sql\Product\SqlProduct.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>SqlProduct.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Dish\Dish.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Dish.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Drink\Drink.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Drink.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Sql\Employee\Employee.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Employee.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 

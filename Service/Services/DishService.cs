@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Common.Enums;
 using Domain.DI.Interfaces;
+using Domain.Models;
 using Domain.Repositories.Interfaces;
 using Service.DI.Interfaces;
 using Service.Models;
@@ -19,18 +20,28 @@ public class DishService : IDishDbService
         _mapper = serviceManager.Mapper;
     }
 
-    public Task<Dish> Add(Dish dishT)
+    public async Task<Dish> Add(Dish dishT)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<Dish>(await _dishRepository.Add(_mapper.Map<DbDish>(dishT)));
     }
 
-    public Task<IEnumerable<Dish>> GetAll()
+    public async Task<IEnumerable<Dish>> GetAll()
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Dish>>(await _dishRepository.GetAll());
     }
 
-    public Task<IEnumerable<Dish>> GetByType(DishType type)
+    public async Task<IEnumerable<Dish>> GetByType(DishType type)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Dish>>(await _dishRepository.GetByType(type));
+    }
+
+    public async Task<Dish> GetById(int id)
+    {
+        return _mapper.Map<Dish>(await _dishRepository.GetById(id));
+    }
+
+    public async Task<IEnumerable<Dish>> GetByIds(IEnumerable<int> ids)
+    {
+        return _mapper.Map<IEnumerable<Dish>>(await _dishRepository.GetByIds(ids));
     }
 }

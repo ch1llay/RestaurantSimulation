@@ -16,7 +16,7 @@ public class CookMaster : Performer
 
     public override ReadyItem Prepare(MenuItem? item)
     {
-        var dish = item as Dish;
+        var dish = (Dish) item;
 
         return _performers[dish.DishType].Prepare(dish);
     }

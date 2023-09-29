@@ -3,6 +3,7 @@ using DataAccess.DataContexts.Interfaces;
 using DataAccess.DI.Interfaces;
 using Domain.Models;
 using Domain.Repositories.Interfaces;
+using Domain.Sql.Employee;
 
 namespace Domain.Repositories;
 
@@ -15,18 +16,29 @@ public class EmployeeRepository : IEmployeeRepository
         _dataContext = dataContextManager.DataContext;
     }
 
-    public Task<IEnumerable<DbEmployee>> GetAll()
+    public async Task<IEnumerable<DbEmployee>> GetAll()
     {
-        throw new NotImplementedException();
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetAllEmployees, new { });
     }
 
-    public Task<DbEmployee> Add(DbEmployee model)
+    public async Task<DbEmployee> Add(DbEmployee model)
     {
-        throw new NotImplementedException();
+        return await _dataContext.InsertAsync<DbEmployee>(Employee.InsertEmployee, model);
     }
 
-    public Task<IEnumerable<DbEmployee>> GetByType(EmployeeType type)
+    public async Task<IEnumerable<DbEmployee>> GetByType(EmployeeType type)
     {
-        throw new NotImplementedException();
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeesByType, new {dishType=type });
+    }
+
+    public async Task<IEnumerable<DbEmployee>> GetByIds(IEnumerable<int> ids)
+    {
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids=ids });
+
+    }
+
+    public async Task<DbEmployee> GetById(int id)
+    {
+        return await _dataContext.FirstOrDefaultAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids=new List<int>{id}});
     }
 }

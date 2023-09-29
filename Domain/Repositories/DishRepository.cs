@@ -3,6 +3,7 @@ using DataAccess.DataContexts.Interfaces;
 using DataAccess.DI.Interfaces;
 using Domain.Models;
 using Domain.Repositories.Interfaces;
+using Domain.Sql.Dish;
 
 namespace Domain.Repositories;
 
@@ -15,18 +16,29 @@ public class DishRepository : IDishRepository
         _dataContext = dataContextManager.DataContext;
     }
 
-    public Task<IEnumerable<DbDish>> GetAll()
+    public async Task<IEnumerable<DbDish>> GetAll()
     {
-        throw new NotImplementedException();
+       return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetAllDishes, new { });
     }
 
     public async Task<DbDish> Add(DbDish model)
     {
-        return await _dataContext.InsertAsync<DbDish>("", model);
+        return await _dataContext.InsertAsync<DbDish>(Dish.InsertDish, model);
     }
 
-    public Task<IEnumerable<DbDish>> GetByType(DishType type)
+    public async Task<IEnumerable<DbDish>> GetByType(DishType type)
     {
-        throw new NotImplementedException();
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishesByType, new {dishType=type });
+    }
+
+    public async Task<IEnumerable<DbDish>> GetByIds(IEnumerable<int> ids)
+    {
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishByIds, new {ids=ids });
+
+    }
+
+    public async Task<DbDish> GetById(int id)
+    {
+        return await _dataContext.FirstOrDefaultAsync<DbDish>(Dish.GetDishByIds, new {ids=new List<int>{id}});
     }
 }

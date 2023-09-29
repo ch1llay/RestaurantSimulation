@@ -23,4 +23,14 @@ public class DrinkService : IDrinkDbService
     {
         throw new NotImplementedException();
     }
+
+    public Task<Drink> GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Drink>> GetByIds(IEnumerable<int> ids)
+    {
+        throw new NotImplementedException();
+    }
 }

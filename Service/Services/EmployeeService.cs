@@ -33,4 +33,14 @@ public class EmployeeService : IEmployeeDbService
     {
         throw new NotImplementedException();
     }
+
+    public Task<Employee> GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Employee>> GetByIds(IEnumerable<int> ids)
+    {
+        throw new NotImplementedException();
+    }
 }

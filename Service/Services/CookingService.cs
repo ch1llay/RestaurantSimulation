@@ -32,13 +32,13 @@ public class CookingService : ICookingService
         foreach (var dish in dishes) yield return _menuItemsPrepires.Prepare(dish) as ReadyDish;
     }
 
-    public IEnumerable<ReadyDrink?> PrepareDrinks(IEnumerable<int> ids)
+    public ReadyDrink? PrepareDrink(Drink drink)
     {
-        throw new NotImplementedException();
+        return _menuItemsPrepires.Prepare(drink) as ReadyDrink;
     }
 
-    public IEnumerable<ReadyDish?> PrepareDishes(IEnumerable<int> ids)
+    public ReadyDish? PrepareDish(Dish dish)
     {
-        throw new NotImplementedException();
+        return _menuItemsPrepires.Prepare(dish) as ReadyDish;
     }
 }
