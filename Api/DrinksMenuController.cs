@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Models.Application.Items;
-using Models.Enums;
+﻿using Common.Enums;
+using Domain.Models;
+using Microsoft.AspNetCore.Mvc;
+using Service.DI.Interfaces;
+using Service.Models;
 using Service.Services.Interfaces;
 
 namespace RestourantSimulation;
@@ -9,11 +11,11 @@ namespace RestourantSimulation;
 [Route("[controller]")]
 public class DrinkMenuController : Controller
 {
-    private readonly IDrinkService _drinkService;
+    private readonly IDrinkDbService _drinkService;
 
-    public DrinkMenuController(IDrinkService drinkService)
+    public DrinkMenuController(IServiceManager serviceManager)
     {
-        _drinkService = drinkService;
+        _drinkService = serviceManager.DrinkService;
     }
 
     [HttpPost("add")]
@@ -21,54 +23,17 @@ public class DrinkMenuController : Controller
     {
         return Ok(_drinkService.Add(drink));
     }
-
-    [HttpPost("add-many")]
-    public async Task<IActionResult> AddMany(List<Drink> drinks)
-    {
-        return Ok(await _drinkService.AddMany(drinks));
-    }
-
-
-    [HttpPost("get-by-ids")]
-    public async Task<IActionResult> GetByIds(List<int> ids)
-    {
-        return Ok(await _drinkService.GetByIds(ids));
-    }
-
+    
     [HttpGet("all")]
     public async Task<IActionResult> GetAll()
     {
         return Ok(await _drinkService.GetAll());
     }
 
-    [HttpGet("all/available")]
-    public async Task<IActionResult> GetAllAvailable()
-    {
-        return Ok(await _drinkService.GetAllAvailable());
-    }
-
+    
     [HttpGet("by-type/{drinkType}")]
     public async Task<IActionResult> GetAll(DrinkType drinkType)
     {
         return Ok(await _drinkService.GetByType(drinkType));
-    }
-
-    [HttpGet("by-type/{drinkType}/available")]
-    public async Task<IActionResult> GetByTypeAvailable(DrinkType drinkType)
-    {
-        return Ok(await _drinkService.GetByTypeAvailable(drinkType));
-    }
-
-
-    [HttpPut]
-    public async Task<IActionResult> Update(Drink drink)
-    {
-        return Ok(await _drinkService.Update(drink));
-    }
-
-    [HttpDelete]
-    public async Task<IActionResult> Delete(int id)
-    {
-        return Ok(await _drinkService.Delete(id));
     }
 }

@@ -1,5 +1,6 @@
-﻿using Models.Application.Items;
-using Models.Application.ReadyItems;
+﻿
+using Service.Items;
+using Service.Models;
 
 namespace Service.Services.Interfaces;
 

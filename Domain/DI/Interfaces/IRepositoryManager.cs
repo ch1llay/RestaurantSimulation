@@ -8,10 +8,6 @@ public interface IRepositoryManager
 {
     public IDishRepository DishRepository { get; }
     public IDrinkRepository DrinkRepository { get; }
-    public ICookingDishRepository CookingDishRepository { get; }
     public IEmployeeRepository EmployeeRepository { get; }
-    public OrderRepository OrderRepository { get; }
-    public ITableRepository TableRepository { get; }
-    public IProductRepository ProductRepository { get; }
     public IMapper Mapper { get; }
 }

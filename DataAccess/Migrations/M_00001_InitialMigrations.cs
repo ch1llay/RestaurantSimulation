@@ -1,7 +1,5 @@
 ﻿using FluentMigrator;
 using FluentMigrator.Expressions;
-using Models.Application;
-using Models.Domain;
 
 namespace DataAccess.Migrations;
 
@@ -86,14 +84,6 @@ public class M_00001_InitialMigrations : Migration
             .WithColumn("ProductId").AsInt32().ForeignKey("Products", "Id")
             .WithColumn("StartTime").AsDateTime()
             .WithColumn("EndTime").AsDateTime();
-
-        var r = new Random();
-        for (var i = 1; i < 10; i++)
-        {
-            Insert.IntoTable("Tables")
-                .InSchema("public")
-                .Row(new Table {Number = i, PeopleCapacity = r.Next(1, 5), Available = true});
-        }
     }
 
     public override void Down()

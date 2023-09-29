@@ -1,12 +1,8 @@
-﻿using Models.Domain;
+﻿namespace Domain.Repositories.Interfaces;
 
-namespace Domain.Repositories.Interfaces;
-
-public interface IRepository<T>
+public interface IRepository<T, TT>
 {
-    public Task<IEnumerable<T>> Get(IEnumerable<int> ids);
     public Task<IEnumerable<T>> GetAll();
-    public Task<T?> Get(int id);
     public Task<T> Add(T model);
-    public Task<IEnumerable<T>> AddRange(IEnumerable<T> dbEmployees);
+    public Task<IEnumerable<T>> GetByType(TT type);
 }

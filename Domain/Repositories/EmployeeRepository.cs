@@ -1,9 +1,8 @@
-﻿using DataAccess.DataContexts.Interfaces;
+﻿using Common.Enums;
+using DataAccess.DataContexts.Interfaces;
 using DataAccess.DI.Interfaces;
+using Domain.Models;
 using Domain.Repositories.Interfaces;
-using Domain.Sql.Employee;
-using Models.Domain;
-using Models.Enums;
 
 namespace Domain.Repositories;
 
@@ -16,46 +15,18 @@ public class EmployeeRepository : IEmployeeRepository
         _dataContext = dataContextManager.DataContext;
     }
 
-    public async Task<IEnumerable<DbEmployee>> AddRange(IEnumerable<DbEmployee> dbEmployees)
+    public Task<IEnumerable<DbEmployee>> GetAll()
     {
-        var ids = (await _dataContext.InsertManyAsync(SqlEmployee.InsertEmployee, dbEmployees)).ToList();
-
-        var i = 0;
-
-        foreach (var model in dbEmployees)
-        {
-            model.Id = ids[i];
-            i++;
-        }
-
-        return dbEmployees;
+        throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<DbEmployee>> GetByEmployeeType(EmployeeType employeeType)
+    public Task<DbEmployee> Add(DbEmployee model)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetAllEmployees, new {employeeType});
+        throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<DbEmployee>> Get(IEnumerable<int> ids)
+    public Task<IEnumerable<DbEmployee>> GetByType(EmployeeType type)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetEmployeesByIds, new {ids});
-    }
-
-    public async Task<IEnumerable<DbEmployee>> GetAll()
-    {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(SqlEmployee.GetAllEmployees, new { });
-    }
-
-    public async Task<DbEmployee?> Get(int id)
-    {
-        return await _dataContext.FirstOrDefaultAsync<DbEmployee>(SqlEmployee.InsertEmployee, new {id});
-    }
-
-    public async Task<DbEmployee> Add(DbEmployee model)
-    {
-        var id = await _dataContext.InsertAsync<int>(SqlEmployee.InsertEmployee, model);
-        model.Id = id;
-
-        return model;
+        throw new NotImplementedException();
     }
 }

@@ -1,6 +1,5 @@
-﻿using Models.Application.Items;
-using Models.Application.ReadyItems;
-using Service.Factories;
+﻿using Service.Factories;
+using Service.Items;
 using Service.Performers.Interfaces;
 using Service.Workplaces.Interfaces;
 
@@ -17,7 +16,7 @@ public class PerformerContext
     private Performer _performer { get; }
     private WorkPlace _workPlace { get; }
 
-    public ReadyOrderItem Prepare(MenuItem? item)
+    public ReadyItem Prepare(MenuItem? item)
     {
         var readyItem = _performer.Prepare(item);
         _workPlace.Modify(readyItem);

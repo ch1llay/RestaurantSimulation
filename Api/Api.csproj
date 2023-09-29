@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Common\Common.csproj" />
         <ProjectReference Include="..\Domain\Domain.csproj"/>
         <ProjectReference Include="..\Service\Service.csproj"/>
     </ItemGroup>
@@ -17,6 +18,13 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.20"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Reference Include="Models">
+        <HintPath>bin\Debug\net6.0\Models.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

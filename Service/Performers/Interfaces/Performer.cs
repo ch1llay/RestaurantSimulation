@@ -1,10 +1,9 @@
-﻿using Models.Application.Items;
-using Models.Application.ReadyItems;
+﻿using Service.Items;
 
 namespace Service.Performers.Interfaces;
 
 public abstract class Performer
 {
-    public abstract ReadyOrderItem Prepare(MenuItem? item);
-    public abstract IEnumerable<ReadyOrderItem> Prepare(IEnumerable<MenuItem> sourceItems);
+    public abstract ReadyItem Prepare(MenuItem? item);
+    public abstract IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems);
 }

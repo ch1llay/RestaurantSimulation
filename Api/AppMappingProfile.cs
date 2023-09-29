@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Models.Application;
-using Models.Application.Items;
-using Models.Domain;
+using Domain.Models;
+using Service.Models;
 
 namespace RestourantSimulation;
 
@@ -12,7 +11,5 @@ public class AppMappingProfile : Profile
         CreateMap<DbEmployee, Employee>().ReverseMap();
         CreateMap<DbDish, Dish>().ReverseMap();
         CreateMap<DbDrink, Drink>().ReverseMap();
-        CreateMap<DbOrder, Order>().ReverseMap();
-        CreateMap<DbProduct, Product>().ReverseMap();
     }
 }

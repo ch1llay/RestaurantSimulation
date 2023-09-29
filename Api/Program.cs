@@ -95,14 +95,12 @@ namespace RestourantSimulation
 
         public static void AddTransientGroup(this IServiceCollection services)
         {
-            services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IEmployeeDbService, EmployeeService>();
         }
 
         public static void AddScopedGroup(this IServiceCollection services)
         {
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
         }

@@ -1,9 +1,8 @@
-﻿using Models.Domain;
-using Models.Enums;
+﻿using Common.Enums;
+using Domain.Models;
 
 namespace Domain.Repositories.Interfaces;
 
-public interface IEmployeeRepository : IRepository<DbEmployee>
+public interface IEmployeeRepository : IRepository<DbEmployee, EmployeeType>
 {
-    public Task<IEnumerable<DbEmployee>> GetByEmployeeType(EmployeeType employeeType);
 }

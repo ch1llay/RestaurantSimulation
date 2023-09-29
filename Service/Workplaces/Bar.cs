@@ -1,12 +1,12 @@
-﻿using Models.Application.Items;
-using Models.Application.ReadyItems;
+﻿
+using Service.Items;
 using Service.Workplaces.Interfaces;
 
 namespace Service.Workplaces;
 
 public class Bar : WorkPlace
 {
-    public override ReadyOrderItem? Modify(ReadyOrderItem orderItem)
+    public override ReadyItem? Modify(ReadyItem orderItem)
     {
         var drink = orderItem as ReadyDrink;
 

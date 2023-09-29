@@ -1,25 +1,25 @@
-﻿using Models.Application.Items;
-using Models.Application.ReadyItems;
+﻿using Service.Items;
+using Service.Models;
 using Service.Services.Interfaces;
 
 namespace Service.Services;
 
 public class CookingService : ICookingService
 {
-    private readonly IOrderItemsPrepires _orderItemsPrepires;
+    private readonly IMenuItemsPrepires _menuItemsPrepires;
 
-    public CookingService(IOrderItemsPrepires orderItemsPrepires)
+    public CookingService(IMenuItemsPrepires menuItemsPrepires)
     {
-        _orderItemsPrepires = orderItemsPrepires;
+        _menuItemsPrepires = menuItemsPrepires;
     }
 
     public IEnumerable<ReadyDrink?> PrepareDrinks(IEnumerable<Drink> drinks)
     {
-        foreach (var drink in drinks) yield return _orderItemsPrepires.Prepare(drink) as ReadyDrink;
+        foreach (var drink in drinks) yield return _menuItemsPrepires.Prepare(drink) as ReadyDrink;
     }
 
     public IEnumerable<ReadyDish?> PrepareDishes(IEnumerable<Dish> dishes)
     {
-        foreach (var dish in dishes) yield return _orderItemsPrepires.Prepare(dish) as ReadyDish;
+        foreach (var dish in dishes) yield return _menuItemsPrepires.Prepare(dish) as ReadyDish;
     }
 }

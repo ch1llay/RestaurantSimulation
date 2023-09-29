@@ -6,11 +6,8 @@ namespace Service.DI.Interfaces;
 
 public interface IServiceManager
 {
-    public IDishService DishService { get; }
-    public IDrinkService DrinkService { get; }
-    public IEmployeeService EmployeeService { get; }
-    public OrderService OrderService { get; }
-    public IProductService ProductService { get; }
-
+    public IDishDbService DishDbService { get; }
+    public IDrinkDbService DrinkService { get; }
+    public IEmployeeDbService EmployeeDbService { get; }
     public IMapper Mapper { get; }
 }

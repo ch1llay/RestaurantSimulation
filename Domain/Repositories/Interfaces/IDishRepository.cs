@@ -1,9 +1,8 @@
-﻿using Models.Domain;
-using Models.Enums;
+﻿using Common.Enums;
+using Domain.Models;
 
 namespace Domain.Repositories.Interfaces;
 
-public interface IDishRepository : IRepository<DbDish>
+public interface IDishRepository : IRepository<DbDish, DishType>
 {
-    public Task<IEnumerable<DbDish>> GetByType(DishType dishType);
 }

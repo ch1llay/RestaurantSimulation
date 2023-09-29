@@ -1,8 +1,9 @@
-﻿using Models.Application.ReadyItems;
+﻿
+using Service.Items;
 
 namespace Service.Workplaces.Interfaces;
 
 public abstract class WorkPlace
 {
-    public abstract ReadyOrderItem? Modify(ReadyOrderItem orderItem);
+    public abstract ReadyItem? Modify(ReadyItem orderItem);
 }
