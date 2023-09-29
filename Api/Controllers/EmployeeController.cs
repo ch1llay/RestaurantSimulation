@@ -23,7 +23,6 @@ public class EmployeeController : Controller
         return Ok(await _employeeDbService.Add(employee));
     }
 
-  
 
     [HttpGet("all")]
     public async Task<IActionResult> GetAll()
@@ -31,7 +30,7 @@ public class EmployeeController : Controller
         return Ok(await _employeeDbService.GetAll());
     }
 
-   
+
     [HttpGet("by-type/{employeeType}")]
     public async Task<IActionResult> GetAll(EmployeeType employeeType)
     {

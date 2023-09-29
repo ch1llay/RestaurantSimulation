@@ -1,4 +1,7 @@
-﻿using Service.Performers.Cooks;
+﻿using Common.Enums;
+using Service.DI.Interfaces;
+using Service.Models;
+using Service.Performers.Cooks;
 using Service.Performers.Interfaces;
 using Service.Workplaces;
 using Service.Workplaces.Interfaces;
@@ -12,8 +15,10 @@ public class CookFactory : PerformerContextFactory
         return new CookMaster();
     }
 
-    public override WorkPlace GetWorkPlace()
+    public override async Task<WorkPlace> GetWorkPlace(IServiceManager serviceManager)
     {
-        return new Kitchen();
+        var employee = await serviceManager.EmployeeDbService.GetByType(EmployeeType.Cook);
+
+        return new Kitchen(employee.FirstOrDefault());
     }
 }

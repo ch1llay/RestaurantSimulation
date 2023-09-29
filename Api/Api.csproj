@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common\Common.csproj" />
+        <ProjectReference Include="..\Common\Common.csproj"/>
         <ProjectReference Include="..\Domain\Domain.csproj"/>
         <ProjectReference Include="..\Service\Service.csproj"/>
     </ItemGroup>
@@ -22,11 +22,10 @@
 
 
     <ItemGroup>
-      <Reference Include="Models">
-        <HintPath>bin\Debug\net6.0\Models.dll</HintPath>
-      </Reference>
+        <Reference Include="Models">
+            <HintPath>bin\Debug\net6.0\Models.dll</HintPath>
+        </Reference>
     </ItemGroup>
-
 
 
 </Project>

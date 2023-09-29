@@ -9,12 +9,19 @@ namespace Service.Services;
 
 public class MenuItemsPrepires : IMenuItemsPrepires
 {
+    private static IServiceManager _serviceManager;
+
+    public MenuItemsPrepires(IServiceManager serviceManager)
+    {
+        _serviceManager = serviceManager;
+    }
+
     private readonly Dictionary<MenuItemType, PerformerContext> _creators =
-        new Dictionary<MenuItemType, PerformerContext>
+        new()
         {
-            {MenuItemType.Dish, new PerformerContext(new CookFactory())},
+            {MenuItemType.Dish, new PerformerContext(new CookFactory(), _serviceManager)},
             {
-                MenuItemType.Drink, new PerformerContext(new BarFactory())
+                MenuItemType.Drink, new PerformerContext(new BarFactory(), _serviceManager)
             }
         };
 
@@ -25,9 +32,6 @@ public class MenuItemsPrepires : IMenuItemsPrepires
 
     public IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> orderItems)
     {
-        foreach (var orderItem in orderItems)
-        {
-            yield return Prepare(orderItem);
-        }
+        foreach (var orderItem in orderItems) yield return Prepare(orderItem);
     }
 }

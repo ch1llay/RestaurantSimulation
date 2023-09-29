@@ -31,10 +31,10 @@ public class CookController : Controller
         {
             return NotFound();
         }
-        
+
         return Ok(_cookingService.PrepareDrink(drink));
     }
-    
+
     [HttpGet("dish/{id}")]
     public async Task<IActionResult> CookDish(int id)
     {
@@ -44,10 +44,10 @@ public class CookController : Controller
         {
             return NotFound();
         }
-        
+
         return Ok(_cookingService.PrepareDish(dish));
     }
-    
+
     [HttpPost("drink")]
     public async Task<IActionResult> CookDrink(List<int> ids)
     {
@@ -57,10 +57,10 @@ public class CookController : Controller
         {
             return NotFound();
         }
-        
+
         return Ok(_cookingService.PrepareDrinks(drinks));
     }
-    
+
     [HttpPost("dish")]
     public async Task<IActionResult> CookDish(List<int> ids)
     {
@@ -70,6 +70,7 @@ public class CookController : Controller
         {
             return NotFound();
         }
+
         return Ok(_cookingService.PrepareDishes(dishes));
     }
 }

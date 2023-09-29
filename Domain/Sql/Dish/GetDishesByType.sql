@@ -1,2 +1,3 @@
 select *
-from "Dishes" where "DishType" = @dishType
+from "Dishes"
+where "DishType" = @dishType

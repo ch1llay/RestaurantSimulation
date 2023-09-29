@@ -28,17 +28,16 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task<IEnumerable<DbEmployee>> GetByType(EmployeeType type)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeesByType, new {dishType=type });
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeesByType, new {dishType = type});
     }
 
     public async Task<IEnumerable<DbEmployee>> GetByIds(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids=ids });
-
+        return await _dataContext.EnumerableOrEmptyAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids = ids});
     }
 
     public async Task<DbEmployee> GetById(int id)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids=new List<int>{id}});
+        return await _dataContext.FirstOrDefaultAsync<DbEmployee>(Employee.GetEmployeeByIds, new {ids = new List<int> {id}});
     }
 }

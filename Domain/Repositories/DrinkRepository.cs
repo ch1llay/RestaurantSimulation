@@ -28,17 +28,16 @@ public class DrinkRepository : IDrinkRepository
 
     public async Task<IEnumerable<DbDrink>> GetByType(DrinkType type)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinksByType, new {dishType=type });
+        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinksByType, new {dishType = type});
     }
 
     public async Task<IEnumerable<DbDrink>> GetByIds(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinkByIds, new {ids=ids });
-
+        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinkByIds, new {ids = ids});
     }
 
     public async Task<DbDrink> GetById(int id)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbDrink>(Drink.GetDrinkByIds, new {ids=new List<int>{id}});
+        return await _dataContext.FirstOrDefaultAsync<DbDrink>(Drink.GetDrinkByIds, new {ids = new List<int> {id}});
     }
 }

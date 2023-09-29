@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Common.Enums;
 using Domain.DI.Interfaces;
+using Domain.Models;
 using Domain.Repositories.Interfaces;
 using Service.DI.Interfaces;
 using Service.Models;
@@ -19,28 +20,28 @@ public class EmployeeService : IEmployeeDbService
         _mapper = serviceManager.Mapper;
     }
 
-    public Task<Employee> Add(Employee dishT)
+    public async Task<Employee> Add(Employee dishT)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<Employee>(await _employeeRepository.Add(_mapper.Map<DbEmployee>(dishT)));
     }
 
-    public Task<IEnumerable<Employee>> GetAll()
+    public async Task<IEnumerable<Employee>> GetAll()
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Employee>>(await _employeeRepository.GetAll());
     }
 
-    public Task<IEnumerable<Employee>> GetByType(EmployeeType type)
+    public async Task<IEnumerable<Employee>> GetByType(EmployeeType type)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Employee>>(await _employeeRepository.GetByType(type));
     }
 
-    public Task<Employee> GetById(int id)
+    public async Task<Employee> GetById(int id)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<Employee>(await _employeeRepository.GetById(id));
     }
 
-    public Task<IEnumerable<Employee>> GetByIds(IEnumerable<int> ids)
+    public async Task<IEnumerable<Employee>> GetByIds(IEnumerable<int> ids)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Employee>>(await _employeeRepository.GetByIds(ids));
     }
 }

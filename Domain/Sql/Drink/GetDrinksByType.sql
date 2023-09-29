@@ -1,2 +1,3 @@
 select *
-from "Drinks" where "DrinkType" = @drinkType
+from "Drinks"
+where "DrinkType" = @drinkType

@@ -1,2 +1,3 @@
 select *
-from "Employees" where "Id" in @ids
+from "Employees"
+where "Id" = any (@ids)

@@ -20,16 +20,16 @@ public class DrinkMenuController : Controller
     [HttpPost("add")]
     public async Task<IActionResult> Add(Drink drink)
     {
-        return Ok(_drinkService.Add(drink));
+        return Ok(await _drinkService.Add(drink));
     }
-    
+
     [HttpGet("all")]
     public async Task<IActionResult> GetAll()
     {
         return Ok(await _drinkService.GetAll());
     }
 
-    
+
     [HttpGet("by-type/{drinkType}")]
     public async Task<IActionResult> GetAll(DrinkType drinkType)
     {

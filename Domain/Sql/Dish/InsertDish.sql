@@ -5,4 +5,4 @@ insert into "Dishes" ("Id",
 values (default,
         @Name,
         @DishType,
-        @Cost) {0}"Id"
+        @Cost) {0}"Id", "Name", "DishType", "Cost"

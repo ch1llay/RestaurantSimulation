@@ -5,5 +5,9 @@ namespace Service.Performers.Interfaces;
 public abstract class Performer
 {
     public abstract ReadyItem Prepare(MenuItem? item);
-    public abstract IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems);
+
+    public IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems)
+    {
+        foreach (var item in sourceItems) yield return Prepare(item);
+    }
 }

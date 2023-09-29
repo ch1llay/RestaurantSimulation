@@ -25,17 +25,11 @@
     </ItemGroup>
 
 
-
-
     <ItemGroup>
-      <Reference Include="Models">
-        <HintPath>..\Api\bin\Debug\net6.0\Models.dll</HintPath>
-      </Reference>
+        <Reference Include="Models">
+            <HintPath>..\Api\bin\Debug\net6.0\Models.dll</HintPath>
+        </Reference>
     </ItemGroup>
-
-
-
-
 
 
 </Project>

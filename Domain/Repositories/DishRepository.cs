@@ -18,7 +18,7 @@ public class DishRepository : IDishRepository
 
     public async Task<IEnumerable<DbDish>> GetAll()
     {
-       return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetAllDishes, new { });
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetAllDishes, new { });
     }
 
     public async Task<DbDish> Add(DbDish model)
@@ -28,17 +28,16 @@ public class DishRepository : IDishRepository
 
     public async Task<IEnumerable<DbDish>> GetByType(DishType type)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishesByType, new {dishType=type });
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishesByType, new {dishType = type});
     }
 
     public async Task<IEnumerable<DbDish>> GetByIds(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishByIds, new {ids=ids });
-
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishByIds, new {ids = ids});
     }
 
     public async Task<DbDish> GetById(int id)
     {
-        return await _dataContext.FirstOrDefaultAsync<DbDish>(Dish.GetDishByIds, new {ids=new List<int>{id}});
+        return await _dataContext.FirstOrDefaultAsync<DbDish>(Dish.GetDishByIds, new {ids = new List<int> {id}});
     }
 }

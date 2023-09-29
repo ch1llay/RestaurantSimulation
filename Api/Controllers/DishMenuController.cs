@@ -23,7 +23,7 @@ public class DishMenuController : Controller
         return Ok(await _dishDbService.Add(dish));
     }
 
-    
+
     [HttpGet("all")]
     public async Task<IActionResult> GetAll()
     {
@@ -35,5 +35,4 @@ public class DishMenuController : Controller
     {
         return Ok(await _dishDbService.GetByType(dishType));
     }
-    
 }

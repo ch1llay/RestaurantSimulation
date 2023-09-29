@@ -1,5 +1,4 @@
-﻿
-using Common.Enums;
+﻿using Common.Enums;
 using Domain.Models;
 using Service.Items;
 using Service.Models;
@@ -11,9 +10,9 @@ public class BarmanMaster : Barman
 {
     public Dictionary<DrinkType, Barman> _performers = new()
     {
-        {DrinkType.Alco, new GeneralBarmen()},
-        {DrinkType.HotTonic, new GeneralBarmen()},
-        {DrinkType.NotAlco, new GeneralBarmen()}
+        {DrinkType.Alco, new AlcoBarmen()},
+        {DrinkType.HotTonic, new HotTonicBarman()},
+        {DrinkType.NotAlco, new NotAlcoBarmen()}
     };
 
     public override ReadyItem Prepare(MenuItem? item)
@@ -21,10 +20,5 @@ public class BarmanMaster : Barman
         var drink = item as Drink;
 
         return _performers[drink.DrinkType].Prepare(drink);
-    }
-
-    public override IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems)
-    {
-        foreach (var sourceItem in sourceItems) yield return Prepare(sourceItem);
     }
 }

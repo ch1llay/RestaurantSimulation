@@ -20,9 +20,4 @@ public class CookMaster : Performer
 
         return _performers[dish.DishType].Prepare(dish);
     }
-
-    public override IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems)
-    {
-        foreach (var sourceItem in sourceItems) yield return Prepare(sourceItem);
-    }
 }

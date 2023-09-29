@@ -1,4 +1,6 @@
-﻿using Service.Performers.Barmans;
+﻿using Common.Enums;
+using Service.DI.Interfaces;
+using Service.Performers.Barmans;
 using Service.Performers.Interfaces;
 using Service.Workplaces;
 using Service.Workplaces.Interfaces;
@@ -12,8 +14,10 @@ public class BarFactory : PerformerContextFactory
         return new BarmanMaster();
     }
 
-    public override WorkPlace GetWorkPlace()
+    public override async Task<WorkPlace> GetWorkPlace(IServiceManager serviceManager)
     {
-        return new Bar();
+        var employee = await serviceManager.EmployeeDbService.GetByType(EmployeeType.Barman);
+
+        return new Bar(employee.FirstOrDefault());
     }
 }

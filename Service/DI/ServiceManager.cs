@@ -14,14 +14,14 @@ public class ServiceManager : IServiceManager
     private readonly Lazy<IMenuItemsPrepires> _lazyMenuItemsPrepires;
     private readonly Lazy<ICookingService> _lazyCookingService;
     private readonly IMapper _mapper;
-    
+
 
     public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper)
     {
         _lazyDishService = new Lazy<IDishDbService>(() => new DishService(repositoryManager, this));
         _lazyDrinkService = new Lazy<IDrinkDbService>(() => new DrinkService(repositoryManager, this));
         _lazyEmployeeService = new Lazy<IEmployeeDbService>(() => new EmployeeService(repositoryManager, this));
-        _lazyMenuItemsPrepires = new Lazy<IMenuItemsPrepires>(() => new MenuItemsPrepires());
+        _lazyMenuItemsPrepires = new Lazy<IMenuItemsPrepires>(() => new MenuItemsPrepires(this));
         _lazyCookingService = new Lazy<ICookingService>(() => new CookingService(this, repositoryManager));
         _mapper = mapper;
     }

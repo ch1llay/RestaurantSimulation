@@ -1,5 +1,8 @@
-﻿using Common.Enums;
+﻿using AutoMapper;
+using Common.Enums;
 using Domain.DI.Interfaces;
+using Domain.Models;
+using Domain.Repositories.Interfaces;
 using Service.DI.Interfaces;
 using Service.Models;
 using Service.Services.Interfaces;
@@ -8,29 +11,38 @@ namespace Service.Services;
 
 public class DrinkService : IDrinkDbService
 {
-    public DrinkService(IRepositoryManager repositoryManager, IServiceManager serviceManager) { }
-    public Task<Drink> Add(Drink dishT)
+    private readonly IDrinkRepository _drinkRepository;
+    private readonly IMapper _mapper;
+
+    public DrinkService(IRepositoryManager repositoryManager, IServiceManager serviceManager)
     {
-        throw new NotImplementedException();
+        _mapper = serviceManager.Mapper;
+        _drinkRepository = repositoryManager.DrinkRepository;
     }
 
-    public Task<IEnumerable<Drink>> GetAll()
+
+    public async Task<Drink> Add(Drink dishT)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<Drink>(await _drinkRepository.Add(_mapper.Map<DbDrink>(dishT)));
     }
 
-    public Task<IEnumerable<Drink>> GetByType(DrinkType type)
+    public async Task<IEnumerable<Drink>> GetAll()
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Drink>>(await _drinkRepository.GetAll());
     }
 
-    public Task<Drink> GetById(int id)
+    public async Task<IEnumerable<Drink>> GetByType(DrinkType type)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<IEnumerable<Drink>>(await _drinkRepository.GetByType(type));
     }
 
-    public Task<IEnumerable<Drink>> GetByIds(IEnumerable<int> ids)
+    public async Task<Drink> GetById(int id)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<Drink>(await _drinkRepository.GetById(id));
+    }
+
+    public async Task<IEnumerable<Drink>> GetByIds(IEnumerable<int> ids)
+    {
+        return _mapper.Map<IEnumerable<Drink>>(await _drinkRepository.GetByIds(ids));
     }
 }

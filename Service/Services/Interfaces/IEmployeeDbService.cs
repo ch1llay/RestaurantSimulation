@@ -1,5 +1,4 @@
-﻿
-using Common.Enums;
+﻿using Common.Enums;
 using Service.Models;
 
 namespace Service.Services.Interfaces;

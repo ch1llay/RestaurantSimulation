@@ -1,12 +1,12 @@
 ﻿using Service.Items;
 using Service.Performers.Interfaces;
 
-namespace Service.Performers.Cooks;
+namespace Service.Performers.Barmans;
 
-public class HotCook : Cook
+public class AlcoBarmen : Barman
 {
     public override ReadyItem Prepare(MenuItem? item)
     {
-        return new ReadyDish().AddEmoji("🥣").AddSpoon();
+        return new ReadyDrink().AddEmoji("🍷").AddIce();
     }
 }

@@ -8,13 +8,6 @@ public class ColdCook : Cook
 {
     public override ReadyItem Prepare(MenuItem? item)
     {
-        var dish = (Dish) item;
-
-        return new ReadyDish();
-    }
-
-    public override IEnumerable<ReadyItem> Prepare(IEnumerable<MenuItem> sourceItems)
-    {
-        throw new NotImplementedException();
+        return new ReadyDish().AddEmoji("🥗").AddFork();
     }
 }

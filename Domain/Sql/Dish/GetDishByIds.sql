@@ -1,2 +1,3 @@
 select *
-from "Dishes" where "Id" in @ids
+from "Dishes"
+where "Id" = any (@ids)
