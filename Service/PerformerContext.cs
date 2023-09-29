@@ -12,6 +12,7 @@ public class PerformerContext
     {
         _performer = factory.GetPerformer();
         _workPlace = factory.GetWorkPlace(serviceManager);
+        _workPlace.Wait();
     }
 
     private Performer _performer { get; }

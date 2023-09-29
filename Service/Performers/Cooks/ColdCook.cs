@@ -1,5 +1,4 @@
 ﻿using Service.Items;
-using Service.Models;
 using Service.Performers.Interfaces;
 
 namespace Service.Performers.Cooks;

@@ -33,7 +33,7 @@ public class DishRepository : IDishRepository
 
     public async Task<IEnumerable<DbDish>> GetByIds(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishByIds, new {ids = ids});
+        return await _dataContext.EnumerableOrEmptyAsync<DbDish>(Dish.GetDishByIds, new {ids});
     }
 
     public async Task<DbDish> GetById(int id)

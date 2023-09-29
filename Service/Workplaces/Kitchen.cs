@@ -6,6 +6,7 @@ namespace Service.Workplaces;
 
 public class Kitchen : WorkPlace
 {
+    public Kitchen(Employee employee) : base(employee) { }
     public override Employee Employee { get; set; }
 
     public override ReadyItem? Modify(ReadyItem orderItem)
@@ -16,6 +17,4 @@ public class Kitchen : WorkPlace
 
         return dish;
     }
-
-    public Kitchen(Employee employee) : base(employee) { }
 }

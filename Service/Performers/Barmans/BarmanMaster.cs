@@ -1,5 +1,4 @@
 ﻿using Common.Enums;
-using Domain.Models;
 using Service.Items;
 using Service.Models;
 using Service.Performers.Interfaces;

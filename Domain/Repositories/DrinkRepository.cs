@@ -33,7 +33,7 @@ public class DrinkRepository : IDrinkRepository
 
     public async Task<IEnumerable<DbDrink>> GetByIds(IEnumerable<int> ids)
     {
-        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinkByIds, new {ids = ids});
+        return await _dataContext.EnumerableOrEmptyAsync<DbDrink>(Drink.GetDrinkByIds, new {ids});
     }
 
     public async Task<DbDrink> GetById(int id)

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Service.Services;
 using Service.Services.Interfaces;
 
 namespace Service.DI.Interfaces;

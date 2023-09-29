@@ -4,6 +4,7 @@ namespace Service.Items;
 
 public class ReadyDish : ReadyItem
 {
+    
     public string Emoji { get; set; }
     public bool IsNeedSpoon { get; set; }
     public bool IsNeedFork { get; set; }

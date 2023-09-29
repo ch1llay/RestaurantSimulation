@@ -1,7 +1,5 @@
-﻿using Common.Enums;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Service.DI.Interfaces;
-using Service.Models;
 using Service.Services.Interfaces;
 
 namespace RestaurantSimulation.Controllers;
@@ -11,8 +9,8 @@ namespace RestaurantSimulation.Controllers;
 public class CookController : Controller
 {
     private readonly ICookingService _cookingService;
-    private readonly IDrinkDbService _drinkDbService;
     private readonly IDishDbService _dishDbService;
+    private readonly IDrinkDbService _drinkDbService;
 
 
     public CookController(IServiceManager serviceManager)

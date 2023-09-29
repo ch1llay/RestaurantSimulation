@@ -1,6 +1,5 @@
 ﻿using Common.Enums;
 using Service.DI.Interfaces;
-using Service.Models;
 using Service.Performers.Cooks;
 using Service.Performers.Interfaces;
 using Service.Workplaces;

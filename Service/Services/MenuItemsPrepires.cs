@@ -2,28 +2,28 @@
 using Service.DI.Interfaces;
 using Service.Factories;
 using Service.Items;
-using Service.Models;
 using Service.Services.Interfaces;
 
 namespace Service.Services;
 
 public class MenuItemsPrepires : IMenuItemsPrepires
 {
-    private static IServiceManager _serviceManager;
+    private readonly Dictionary<MenuItemType, PerformerContext> _creators;
+    private readonly IServiceManager _serviceManager;
 
     public MenuItemsPrepires(IServiceManager serviceManager)
     {
         _serviceManager = serviceManager;
-    }
 
-    private readonly Dictionary<MenuItemType, PerformerContext> _creators =
-        new()
-        {
-            {MenuItemType.Dish, new PerformerContext(new CookFactory(), _serviceManager)},
+        _creators =
+            new Dictionary<MenuItemType, PerformerContext>
             {
-                MenuItemType.Drink, new PerformerContext(new BarFactory(), _serviceManager)
-            }
-        };
+                {MenuItemType.Dish, new PerformerContext(new CookFactory(), _serviceManager)},
+                {
+                    MenuItemType.Drink, new PerformerContext(new BarFactory(), _serviceManager)
+                }
+            };
+    }
 
     public ReadyItem Prepare(MenuItem orderItem)
     {

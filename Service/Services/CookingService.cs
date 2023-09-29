@@ -9,10 +9,10 @@ namespace Service.Services;
 
 public class CookingService : ICookingService
 {
-    private readonly IMenuItemsPrepires _menuItemsPrepires;
     private readonly IDishRepository _dishRepository;
     private readonly IDrinkRepository _drinkRepository;
     private readonly IEmployeeRepository _employeeRepository;
+    private readonly IMenuItemsPrepires _menuItemsPrepires;
 
     public CookingService(IServiceManager serviceManager, IRepositoryManager repositoryManager)
     {

@@ -5,12 +5,12 @@ namespace Service.Workplaces.Interfaces;
 
 public abstract class WorkPlace
 {
-    public abstract Employee Employee { get; set; }
-
     public WorkPlace(Employee employee)
     {
         Employee = employee;
     }
+
+    public abstract Employee Employee { get; set; }
 
     public abstract ReadyItem? Modify(ReadyItem orderItem);
 }

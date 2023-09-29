@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Domain.Repositories;
 using Domain.Repositories.Interfaces;
 
 namespace Domain.DI.Interfaces;
