@@ -2,7 +2,7 @@
 using Domain.Models;
 using Service.Models;
 
-namespace RestourantSimulation;
+namespace RestaurantSimulation;
 
 public class AppMappingProfile : Profile
 {

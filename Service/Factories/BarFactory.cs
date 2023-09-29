@@ -1,4 +1,6 @@
-﻿using Service.Performers.Interfaces;
+﻿using Service.Performers.Barmans;
+using Service.Performers.Interfaces;
+using Service.Workplaces;
 using Service.Workplaces.Interfaces;
 
 namespace Service.Factories;
@@ -7,11 +9,11 @@ public class BarFactory : PerformerContextFactory
 {
     public override Performer GetPerformer()
     {
-        throw new NotImplementedException();
+        return new BarmanMaster();
     }
 
     public override WorkPlace GetWorkPlace()
     {
-        throw new NotImplementedException();
+        return new Bar();
     }
 }

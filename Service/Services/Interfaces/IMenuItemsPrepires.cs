@@ -5,7 +5,7 @@ namespace Service.Services.Interfaces;
 
 public interface IMenuItemsPrepires
 {
-    public ReadyDrink? Prepare(Drink drinks);
+    public ReadyItem? Prepare(MenuItem item);
 
-    public ReadyDish? Prepare(Dish dishes);
+    public IEnumerable<ReadyItem>? Prepare(IEnumerable<MenuItem> items);
 }

@@ -1,11 +1,10 @@
 ﻿using Common.Enums;
-using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Service.DI.Interfaces;
 using Service.Models;
 using Service.Services.Interfaces;
 
-namespace RestourantSimulation;
+namespace RestaurantSimulation.Controllers;
 
 [ApiController]
 [Route("[controller]")]

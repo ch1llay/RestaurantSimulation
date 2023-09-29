@@ -9,5 +9,7 @@ public interface IServiceManager
     public IDishDbService DishDbService { get; }
     public IDrinkDbService DrinkService { get; }
     public IEmployeeDbService EmployeeDbService { get; }
+    public ICookingService CookingService { get; }
+    public IMenuItemsPrepires MenuItemsPrepires { get; }
     public IMapper Mapper { get; }
 }

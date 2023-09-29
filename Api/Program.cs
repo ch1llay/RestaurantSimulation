@@ -8,8 +8,8 @@ using Domain.DI.Interfaces;
 using Domain.Repositories;
 using Domain.Repositories.Interfaces;
 using FluentMigrator.Runner;
-using RestourantSimulation;
-using RestourantSimulation.Middlwares;
+using RestaurantSimulation.Middlwares;
+using RestaurantSimulation;
 using Service.DI;
 using Service.DI.Interfaces;
 using Service.Services;
@@ -26,7 +26,7 @@ app.ConfigureApp();
 app.Run();
 
 
-namespace RestourantSimulation
+namespace RestaurantSimulation
 {
     public static class Extensions
     {

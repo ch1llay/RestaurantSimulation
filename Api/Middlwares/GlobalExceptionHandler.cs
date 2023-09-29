@@ -1,4 +1,4 @@
-﻿namespace RestourantSimulation.Middlwares;
+﻿namespace RestaurantSimulation.Middlwares;
 
 public class GlobalExceptionMiddleware
 {
