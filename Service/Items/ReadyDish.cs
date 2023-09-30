@@ -11,9 +11,9 @@ public class ReadyDish : ReadyItem
         MenuItem = menuItem;
     }
     public string Emoji { get; private set; }
-    public string Name { get; private set; }
     public bool IsNeedSpoon { get; private set; }
     public bool IsNeedFork { get; private set; }
+    public bool isNeedTeaSpon { get; private set; }
 
     public override MenuItemType MenuItemType => MenuItemType.Dish;
 
@@ -26,7 +26,7 @@ public class ReadyDish : ReadyItem
 
     public ReadyDish AddFork()
     {
-        IsNeedSpoon = true;
+        IsNeedFork = true;
 
         return this;
     }
@@ -42,6 +42,12 @@ public class ReadyDish : ReadyItem
     {
         Name = name;
 
+        return this;
+    }
+    
+    public ReadyDish AddTeaSpoon()
+    {
+        isNeedTeaSpon = true;
         return this;
     }
 }
