@@ -4,16 +4,16 @@ namespace Service.Items;
 
 public class ReadyDrink : ReadyItem
 {
-    public MenuItem MenuItem { get; private set; }
-
     public ReadyDrink(MenuItem menuItem)
     {
         MenuItem = menuItem;
     }
+
+    public MenuItem MenuItem { get; private set; }
     public string Emoji { get; private set; }
     public bool IsNeedStraw { get; private set; }
-    public bool IsNeedIce { get; private set; }
-    public bool IsNeedPlate { get; private set; }
+    public bool IsNeedIce { get; }
+    public bool IsNeedPlate { get; }
     public override MenuItemType MenuItemType => MenuItemType.Drink;
 
     public ReadyDrink AddStraw()
