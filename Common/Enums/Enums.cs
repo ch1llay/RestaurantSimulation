@@ -14,8 +14,8 @@ public enum MenuItemType
 
 public enum DishType
 {
-    Cold,
     Hot,
+    Cold,
     Сonfectionery
 }
 

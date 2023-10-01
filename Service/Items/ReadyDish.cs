@@ -38,13 +38,6 @@ public class ReadyDish : ReadyItem
         return this;
     }
     
-    public ReadyDish AddName(string name)
-    {
-        Name = name;
-
-        return this;
-    }
-    
     public ReadyDish AddTeaSpoon()
     {
         isNeedTeaSpon = true;

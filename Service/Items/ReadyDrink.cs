@@ -43,11 +43,4 @@ public class ReadyDrink : ReadyItem
 
         return this;
     }
-    
-    public ReadyDrink AddName(string name)
-    {
-        Name = name;
-
-        return this;
-    }
 }

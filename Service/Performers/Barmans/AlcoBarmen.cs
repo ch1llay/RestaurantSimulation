@@ -7,6 +7,8 @@ public class AlcoBarmen : Barman
 {
     public override ReadyItem Prepare(MenuItem? item)
     {
-        return new ReadyDrink(item).AddName(item.Name).AddEmoji("🍷").AddIce();
+        return new ReadyDrink(item)
+            .AddEmoji("🍷")
+            .AddIce();
     }
 }
